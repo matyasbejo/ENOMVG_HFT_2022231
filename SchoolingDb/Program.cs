@@ -9,6 +9,7 @@ namespace ENOMVG_HFT_2022231
     {
         static void Main(string[] args)
         {
+            //commit test (first commit)
             SchollingDbContext ctx = new SchollingDbContext();
             var items = ctx.Schools.ToArray();
             ;
