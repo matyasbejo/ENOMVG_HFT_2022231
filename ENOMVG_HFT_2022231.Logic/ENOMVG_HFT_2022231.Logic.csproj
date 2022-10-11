@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SchoolingDb.Models\ENOMVG_HFT_2022231.Models.csproj" />
+    <ProjectReference Include="..\ENOMVG_HFT_2022231.Models\ENOMVG_HFT_2022231.Models.csproj" />
   </ItemGroup>
 
 </Project>
