@@ -28,7 +28,7 @@ namespace ENOMVG_HFT_2022231.Models
         {
 
         }
-        public School(string name, string type, int id)
+        public School(int id, string name, string type)
         {
             SchoolName = name;
             SchoolType = type;
@@ -38,8 +38,9 @@ namespace ENOMVG_HFT_2022231.Models
         public School(string input)
         {
             string[] inputArr = input.Split("#");
-            SchoolName = inputArr[0];
-            SchoolType = inputArr[1];
+            SchoolId = int.Parse(inputArr[0]); //must specify auto generated keys in hasdata
+            SchoolName = inputArr[1];
+            SchoolType = inputArr[2];
         }
 
     }

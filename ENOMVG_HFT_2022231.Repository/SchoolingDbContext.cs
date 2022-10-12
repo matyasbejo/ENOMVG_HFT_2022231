@@ -41,27 +41,27 @@ namespace ENOMVG_HFT_2022231.Repository
 
             modelBuilder.Entity<School>().HasData(new School[]
             {
-                new School("Soproni Széchenyi István Gimnázium", "Gimnázium",1),
-                new School("Berzsenyi Dániel Evangélikus (Líceum) Gimnázium és Kollégium", "Gimnázium",2),
-                new School("Soproni Deák Téri Általános Iskola", "Általános",3)
+                new School(1, "Soproni Széchenyi István Gimnázium", "Gimnázium"),
+                new School(2, "Berzsenyi Dániel Evangélikus (Líceum) Gimnázium és Kollégium", "Gimnázium"),
+                new School(3, "Soproni Deák Téri Általános Iskola", "Általános")
             });
 
             modelBuilder.Entity<Teacher>().HasData(new Teacher[]
             {
-                new Teacher("Bejóné Zsoldos Gyöngyi", "tanító"),
-                new Teacher("Márti néni", "tanító"),
-                new Teacher("Lang", "fizika"),
-                new Teacher("Jakab", "német"),
-                new Teacher("Kovács Antal József", "történelem"),
-                new Teacher("Kiss Egér", "Földrajz")
+                new Teacher(1, "Bejóné Zsoldos Gyöngyi", "tanító",3),
+                new Teacher(2, "Márti néni", "tanító",1),
+                new Teacher(3, "Lang", "fizika",3),
+                new Teacher(4, "Jakab", "német", 1),
+                new Teacher(5, "Kovács Antal József", "történelem", 2),
+                new Teacher(6, "Kiss Egér", "Földrajz", 2)
             });
 
             modelBuilder.Entity<Student>().HasData(new Student[]
             {
-                new Student("Bejó Mátyás", 16, 0,1),
-                new Student("Szojka Áron", 17, 0,2),
-                new Student("Hargitai Benke", 17, 1,3),
-                new Student("Dejó Dorka", 13,2,4)
+                new Student(1, "Bejó Mátyás", 16, 1),
+                new Student(2, "Szojka Áron", 17, 1),
+                new Student(3, "Hargitai Benke", 17, 2),
+                new Student(4, "Dejó Dorka", 13, 3)
             });
         } 
     }

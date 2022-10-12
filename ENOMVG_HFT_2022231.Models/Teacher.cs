@@ -18,10 +18,8 @@ namespace ENOMVG_HFT_2022231.Models
         public string TeacherName { get; set;}
 
         [Required]
-        public int SchoolId { get; set;}
-
         [ForeignKey("SchoolId")]
-        public virtual School school { get; set; }
+        public int SchoolId { get; set;}
 
         [Required]        
         public string MainSubject { get; set;}
@@ -29,18 +27,21 @@ namespace ENOMVG_HFT_2022231.Models
         {
 
         }
-        public Teacher(string name, string subject)
+        public Teacher(int id, string name, string subject, int schoolId)
         {
+            TeacherId = id;
             TeacherName = name;
             MainSubject = subject;
+            SchoolId = schoolId;
         }
 
         public Teacher(string input)
         {
             string[] inputArr = input.Split("#");
-            TeacherName = inputArr[0];
-            MainSubject = inputArr[1];
-            SchoolId = int.Parse(inputArr[2]);
+            TeacherId = int.Parse(inputArr[0]); //must specify auto generated keys in hasdata
+            TeacherName = inputArr[1];
+            MainSubject = inputArr[2];
+            SchoolId = int.Parse(inputArr[3]);
         }
     }
 }
