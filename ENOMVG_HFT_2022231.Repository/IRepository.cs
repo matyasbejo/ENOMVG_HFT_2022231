@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace ENOMVG_HFT_2022231.Repository
 {
-    public interface ISchoolingRepository
+    public interface IRepository<T> where T : class
     {
-        void Create(School school);
-        School Read(int id);
-        IQueryable<School> ReadAll();
-        void Update(School school);
+        void Create(T item);
+        T Read(int id);
+        IQueryable<T> ReadAll();
+        void Update(T school);
         void Delete(int id);
     }
 }
