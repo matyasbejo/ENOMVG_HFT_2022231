@@ -24,7 +24,7 @@ namespace ENOMVG_HFT_2022231.Repository
                 //AttachDbFilename=|DataDirectory|\SchoolingDbInM.mdf;Integrated Security=True;MultipleActiveResultSets=true";
 
                 builder
-                    .UseInMemoryDatabase("marvel")
+                    .UseInMemoryDatabase("SchoolingDb")
                     .UseLazyLoadingProxies();
             }
         }
