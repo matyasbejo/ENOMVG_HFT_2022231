@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ENOMVG_HFT_2022231.Repository
 {
-    public interface IRepository
+    public interface ISchoolingRepository
     {
         void Create(School school);
         School Read(int id);
