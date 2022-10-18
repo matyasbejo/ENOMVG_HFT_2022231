@@ -17,7 +17,7 @@ namespace ENOMVG_HFT_2022231.Models
 
         [Required]
         [StringLength(100)]
-        public string SchoolName { get;}
+        public string SchoolName { get; set; }
 
         public int SchoolAge { get; set; }
 

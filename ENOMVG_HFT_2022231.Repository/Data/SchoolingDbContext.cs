@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.InMemory;
 using ENOMVG_HFT_2022231.Models;
 
 namespace ENOMVG_HFT_2022231.Repository
@@ -19,9 +20,12 @@ namespace ENOMVG_HFT_2022231.Repository
         {
             if (!builder.IsConfigured)
             {
-                string conn = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\schooling.mdf; Integrated Security = True; MultipleActiveResultSets = True";
-                builder.UseLazyLoadingProxies();
-                builder.UseSqlServer(conn);
+                //string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;
+                //AttachDbFilename=|DataDirectory|\SchoolingDbInM.mdf;Integrated Security=True;MultipleActiveResultSets=true";
+
+                builder
+                    .UseInMemoryDatabase("marvel")
+                    .UseLazyLoadingProxies();
             }
         }
 

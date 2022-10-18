@@ -1,5 +1,6 @@
 ﻿using ENOMVG_HFT_2022231.Models;
 using ENOMVG_HFT_2022231.Repository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 
@@ -11,7 +12,7 @@ namespace ENOMVG_HFT_2022231
         {
             //commit test (first commit)
             SchollingDbContext ctx = new SchollingDbContext();
-            var items = ctx.Schools.ToArray();
+            var items = ctx.Students.ToArray();
             ;
         }
     }
