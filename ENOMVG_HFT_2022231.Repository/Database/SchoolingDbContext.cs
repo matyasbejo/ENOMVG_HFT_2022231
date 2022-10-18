@@ -62,10 +62,10 @@ namespace ENOMVG_HFT_2022231.Repository
 
             modelBuilder.Entity<Student>().HasData(new Student[]
             {
-                new Student(1, "Bejó Mátyás", 16, 1),
-                new Student(2, "Szojka Áron", 17, 1),
-                new Student(3, "Hargitai Benke", 17, 2),
-                new Student(4, "Dejó Dorka", 13, 3)
+                new Student(1, "Bejó Mátyás", 16, 1, 5),
+                new Student(2, "Szojka Áron", 17, 1, 3.24),
+                new Student(3, "Hargitai Benke", 17, 2, 4.76),
+                new Student(4, "Dejó Dorka", 13, 3, 4.453)
             });
         } 
     }

@@ -25,17 +25,21 @@ namespace ENOMVG_HFT_2022231.Models
         [Range(6,28)]
         public int StudentAge { get; set; }
 
+        [Range(1.00,5.00)]
+        public double StudentGradesAVG { get; set; }
+
         public Student()
         {
 
         }
 
-        public Student(int id, string Name, int Age, int schoolId)
+        public Student(int id, string Name, int Age, int schoolId, double studentGradesAVG)
         {
             StudentName = Name;
             SchoolId = schoolId;
             StudentAge = Age;
             StudentId = id;
+            StudentGradesAVG = studentGradesAVG;
         }
 
         public Student(string input)
