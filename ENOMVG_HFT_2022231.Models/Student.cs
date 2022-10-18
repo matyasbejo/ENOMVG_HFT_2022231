@@ -12,10 +12,10 @@ namespace ENOMVG_HFT_2022231.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int StudentId { get; set; }
+        public int Id { get; set; }
 
         [Required]
-        public string StudentName { get; set; }
+        public string Name { get; set; }
 
         [Required]
         [ForeignKey("SchoolId")]
@@ -23,31 +23,31 @@ namespace ENOMVG_HFT_2022231.Models
 
         [Required]
         [Range(6,28)]
-        public int StudentAge { get; set; }
+        public int Age { get; set; }
 
         [Range(1.00,5.00)]
-        public double StudentGradesAVG { get; set; }
+        public double GradesAVG { get; set; }
 
         public Student()
         {
 
         }
 
-        public Student(int id, string Name, int Age, int schoolId, double studentGradesAVG)
+        public Student(int id, string Name, int Age, int schoolId, double gradesAVG)
         {
-            StudentName = Name;
+            this.Name = Name;
             SchoolId = schoolId;
-            StudentAge = Age;
-            StudentId = id;
-            StudentGradesAVG = studentGradesAVG;
+            this.Age = Age;
+            Id = id;
+            GradesAVG = gradesAVG;
         }
 
         public Student(string input)
         {
             string[] inputArr = input.Split("#");
-            StudentId = int.Parse(inputArr[0]); //must specify auto generated keys in hasdata
-            StudentName = inputArr[1];
-            StudentAge = int.Parse(inputArr[2]);
+            Id = int.Parse(inputArr[0]); //must specify auto generated keys in hasdata
+            Name = inputArr[1];
+            Age = int.Parse(inputArr[2]);
             SchoolId = int.Parse(inputArr[3]);
         }
     }

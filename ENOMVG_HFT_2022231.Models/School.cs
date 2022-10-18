@@ -13,16 +13,16 @@ namespace ENOMVG_HFT_2022231.Models
         [Key]
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int SchoolId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string SchoolName { get; set;}
+        public string Name { get; set;}
 
-        public int SchoolAge { get; set; }
+        public int Age { get; set; }
 
         [Required]
-        public string SchoolType { get; set; }  //jövőben enum
+        public string Type { get; set; }  //jövőben enum
 
         public School()
         {
@@ -30,17 +30,17 @@ namespace ENOMVG_HFT_2022231.Models
         }
         public School(int id, string name, string type)
         {
-            SchoolName = name;
-            SchoolType = type;
-            SchoolId = id;
+            Name = name;
+            Type = type;
+            Id = id;
         }
 
         public School(string input)
         {
             string[] inputArr = input.Split("#");
-            SchoolId = int.Parse(inputArr[0]); //must specify auto generated keys in hasdata
-            SchoolName = inputArr[1];
-            SchoolType = inputArr[2];
+            Id = int.Parse(inputArr[0]); //must specify auto generated keys in hasdata
+            Name = inputArr[1];
+            Type = inputArr[2];
         }
 
     }

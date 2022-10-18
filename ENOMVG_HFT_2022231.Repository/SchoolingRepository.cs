@@ -28,7 +28,7 @@ namespace ENOMVG_HFT_2022231.Repository
 
         public School Read(int id)
         {
-            return this.context.Schools.FirstOrDefault(t => t.SchoolId == id);
+            return this.context.Schools.FirstOrDefault(t => t.Id == id);
         }
 
         public IQueryable<School> ReadAll()
@@ -38,11 +38,11 @@ namespace ENOMVG_HFT_2022231.Repository
 
         public void Update(School school)
         {
-            var oldschool = Read(school.SchoolId);
-            oldschool.SchoolId = school.SchoolId;
-            oldschool.SchoolName = school.SchoolName;
-            oldschool.SchoolAge = school.SchoolAge;
-            oldschool.SchoolType = school.SchoolType;
+            var oldschool = Read(school.Id);
+            oldschool.Id = school.Id;
+            oldschool.Name = school.Name;
+            oldschool.Age = school.Age;
+            oldschool.Type = school.Type;
             this.context.SaveChanges();
         }
     }

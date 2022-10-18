@@ -12,10 +12,10 @@ namespace ENOMVG_HFT_2022231.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int TeacherId { get; set;}
+        public int Id { get; set;}
 
         [Required]
-        public string TeacherName { get; set;}
+        public string Name { get; set;}
 
         [Required]
         [ForeignKey("SchoolId")]
@@ -29,8 +29,8 @@ namespace ENOMVG_HFT_2022231.Models
         }
         public Teacher(int id, string name, string subject, int schoolId)
         {
-            TeacherId = id;
-            TeacherName = name;
+            Id = id;
+            Name = name;
             MainSubject = subject;
             SchoolId = schoolId;
         }
@@ -38,8 +38,8 @@ namespace ENOMVG_HFT_2022231.Models
         public Teacher(string input)
         {
             string[] inputArr = input.Split("#");
-            TeacherId = int.Parse(inputArr[0]); //must specify auto generated keys in hasdata
-            TeacherName = inputArr[1];
+            Id = int.Parse(inputArr[0]); //must specify auto generated keys in hasdata
+            Name = inputArr[1];
             MainSubject = inputArr[2];
             SchoolId = int.Parse(inputArr[3]);
         }
