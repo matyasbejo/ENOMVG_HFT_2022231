@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ENOMVG_HFT_2021222.Endpoint
+namespace ENOMVG_HFT_2022231.Endpoint
 {
     public class Startup
     {

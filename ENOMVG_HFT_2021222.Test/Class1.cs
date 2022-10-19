@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ENOMVG_HFT_2021222.Test
+namespace ENOMVG_HFT_2022231.Test
 {
     public class Class1
     {

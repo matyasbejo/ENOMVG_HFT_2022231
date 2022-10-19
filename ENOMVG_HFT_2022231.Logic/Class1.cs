@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SchoolingDb.Logic
+namespace ENOMVG_HFT_2022231.Logic
 {
     public class Class1
     {

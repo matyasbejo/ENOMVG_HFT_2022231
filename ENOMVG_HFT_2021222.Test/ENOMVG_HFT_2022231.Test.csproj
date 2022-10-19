@@ -1,16 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ENOMVG_HFT_2022231.Models\ENOMVG_HFT_2022231.Models.csproj" />
+    <ProjectReference Include="..\ENOMVG_HFT_2022231.Logic\ENOMVG_HFT_2022231.Logic.csproj" />
+    <ProjectReference Include="..\ENOMVG_HFT_2022231.Repository\ENOMVG_HFT_2022231.Repository.csproj" />
   </ItemGroup>
 
 </Project>
