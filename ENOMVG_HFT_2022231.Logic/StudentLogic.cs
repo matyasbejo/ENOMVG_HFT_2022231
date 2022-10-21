@@ -10,26 +10,24 @@ namespace ENOMVG_HFT_2022231.Logic
 {
     internal class StudentLogic
     {
-        IRepository<Student> StRepo;
+        IRepository<Student> repository;
 
         public StudentLogic(IRepository<Student> _strepo)
         {
-            StRepo = _strepo;
+            repository = _strepo;
         }
 
         public void Create(Student item)
         {
-            this.StRepo.Create(item);
+            this.repository.Create(item);
         }
-
         public void Delete(int id)
         {
-            this.StRepo.Delete(id);
+            this.repository.Delete(id);
         }
-
         public Student Read(int id)
         {
-            var student = this.StRepo.Read(id);
+            var student = this.repository.Read(id);
             if (student == null)
             {
                 throw new ArgumentException("Movie not exists");
@@ -37,15 +35,28 @@ namespace ENOMVG_HFT_2022231.Logic
 
             return student;
         }
-
         public IQueryable<Student> ReadAll()
         {
-            return this.StRepo.ReadAll();
+            return this.repository.ReadAll();
         }
-
         public void Update(Student student)
         {
-            this.StRepo.Update(student);
+            this.repository.Update(student);
+        }
+        //Non CRUD methods
+
+        ///<summary>
+        ///Visszaadja az iskolaba jaro diakok osszesitett atlagat
+        ///</summary>
+        public double GetAVG(int schoolId)
+        {
+            IQueryable<Student> students = this.repository.ReadAll().Where(x => x.SchoolId.Equals(schoolId));
+            double sum = 0;
+            foreach (Student st in students)
+            {
+                sum += st.GradesAVG;
+            }
+            return sum / students.Count();
         }
     }
 }

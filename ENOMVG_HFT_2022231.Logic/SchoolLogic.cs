@@ -10,26 +10,23 @@ namespace ENOMVG_HFT_2022231.Logic
 {
     public class SchoolLogic
     {
-        IRepository<School> ScRepo;
+        IRepository<School> repository;
 
         public SchoolLogic(IRepository<School> _screpo)
         {
-            ScRepo = _screpo;
+            repository = _screpo;
         }
-
         public void Create(School item)
         {
-             this.ScRepo.Create(item);
+             this.repository.Create(item);
         }
-
         public void Delete(int id)
         {
-            this.ScRepo.Delete(id);
+            this.repository.Delete(id);
         }
-
         public School Read(int id)
         {
-            var school = this.ScRepo.Read(id);
+            var school = this.repository.Read(id);
             if (school == null)
             {
                 throw new ArgumentException("Movie not exists");
@@ -37,15 +34,19 @@ namespace ENOMVG_HFT_2022231.Logic
 
             return school;
         }
-
         public IQueryable<School> ReadAll()
         {
-            return this.ScRepo.ReadAll();
+            return this.repository.ReadAll();
         }
-
         public void Update(School school)
         {
-            this.ScRepo.Update(school);
+            this.repository.Update(school);
+        }
+        //Non CRUD methods
+        public double GetSchoolAVG(int SchoolId)
+        {
+            School school = this.repository.Read(SchoolId);
+            IQueryable<Student> students = 
         }
     }
 }

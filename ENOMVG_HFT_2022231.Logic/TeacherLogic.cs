@@ -10,26 +10,26 @@ namespace ENOMVG_HFT_2022231.Logic
 {
     internal class TeacherLogic
     {
-        IRepository<Teacher> TchRepo;
+        IRepository<Teacher> repository;
 
         public TeacherLogic(IRepository<Teacher> _tchrepo)
         {
-            TchRepo = _tchrepo;
+            repository = _tchrepo;
         }
 
         public void Create(Teacher item)
         {
-            this.TchRepo.Create(item);
+            this.repository.Create(item);
         }
 
         public void Delete(int id)
         {
-            this.TchRepo.Delete(id);
+            this.repository.Delete(id);
         }
 
         public Teacher Read(int id)
         {
-            var teacher = this.TchRepo.Read(id);
+            var teacher = this.repository.Read(id);
             if (teacher == null)
             {
                 throw new ArgumentException("Movie not exists");
@@ -40,12 +40,12 @@ namespace ENOMVG_HFT_2022231.Logic
 
         public IQueryable<Teacher> ReadAll()
         {
-            return this.TchRepo.ReadAll();
+            return this.repository.ReadAll();
         }
 
         public void Update(Teacher teacher)
         {
-            this.TchRepo.Update(teacher);
+            this.repository.Update(teacher);
         }
     }
 }
