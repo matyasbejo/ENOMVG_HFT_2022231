@@ -44,19 +44,5 @@ namespace ENOMVG_HFT_2022231.Logic
             this.repository.Update(student);
         }
         //Non CRUD methods
-
-        ///<summary>
-        ///Visszaadja az iskolaba jaro diakok osszesitett atlagat
-        ///</summary>
-        public double GetAVG(int schoolId)
-        {
-            IQueryable<Student> students = this.repository.ReadAll().Where(x => x.SchoolId.Equals(schoolId));
-            double sum = 0;
-            foreach (Student st in students)
-            {
-                sum += st.GradesAVG;
-            }
-            return sum / students.Count();
-        }
     }
 }

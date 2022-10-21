@@ -43,10 +43,10 @@ namespace ENOMVG_HFT_2022231.Logic
             this.repository.Update(school);
         }
         //Non CRUD methods
-        public double GetSchoolAVG(int SchoolId)
-        {
-            School school = this.repository.Read(SchoolId);
-            IQueryable<Student> students = 
-        }
+        //public double GetSchoolAVG(int SchoolId)
+        //{
+        //    School school = this.repository.Read(SchoolId);
+        //    IQueryable<Student> students = 
+        //}
     }
 }
