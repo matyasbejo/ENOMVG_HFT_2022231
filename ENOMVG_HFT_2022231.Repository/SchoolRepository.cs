@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ENOMVG_HFT_2022231.Repository
 {
-    internal class SchoolRepository : Repository<School>, IRepository<School>
+    public class SchoolRepository : Repository<School>, IRepository<School>
     {
         public SchoolRepository(SchollingDbContext ctx) : base(ctx)
         {
