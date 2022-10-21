@@ -31,16 +31,16 @@ namespace ENOMVG_HFT_2022231.Repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Student>(Student => Student
-                .HasOne<School>()   //egy diákhoz van 1 suli
-                .WithMany()         //egy suli több diákhoz is tartozhat
-                .HasForeignKey(Student => Student.SchoolId)
+            modelBuilder.Entity<Student>(student => student
+                .HasOne(student => student.School)   //egy diákhoz van 1 suli
+                .WithMany(Schools => Schools.Students)         //egy suli több diákhoz is tartozhat
+                .HasForeignKey(student => student.SchoolId)
                 .OnDelete(DeleteBehavior.Cascade));
 
-            modelBuilder.Entity<Teacher>(Teacher => Teacher
-                .HasOne<School>()
-                .WithMany()
-                .HasForeignKey(Teacher => Teacher.SchoolId)
+            modelBuilder.Entity<Teacher>(teacher => teacher
+                .HasOne(teacher => teacher.School)
+                .WithMany(Schools => Schools.Teachers)
+                .HasForeignKey(teaher => teaher.SchoolId)
                 .OnDelete(DeleteBehavior.Cascade));
 
             modelBuilder.Entity<School>().HasData(new School[]
@@ -53,8 +53,8 @@ namespace ENOMVG_HFT_2022231.Repository
             modelBuilder.Entity<Teacher>().HasData(new Teacher[]
             {
                 new Teacher(1, "Bejóné Zsoldos Gyöngyi", "tanító",3),
-                new Teacher(2, "Márti néni", "tanító",1),
-                new Teacher(3, "Lang", "fizika",3),
+                new Teacher(2, "Márti néni", "tanító",3),
+                new Teacher(3, "Lang", "fizika",1),
                 new Teacher(4, "Jakab", "német", 1),
                 new Teacher(5, "Kovács Antal József", "történelem", 2),
                 new Teacher(6, "Kiss Egér", "Földrajz", 2)
