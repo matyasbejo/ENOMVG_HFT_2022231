@@ -43,10 +43,20 @@ namespace ENOMVG_HFT_2022231.Logic
             this.repository.Update(school);
         }
         //Non CRUD methods
-        //public double GetSchoolAVG(int SchoolId)
-        //{
-        //    School school = this.repository.Read(SchoolId);
-        //    IQueryable<Student> students = 
-        //}
+        ///<summary>
+        ///Visszaadja az iskolaba jaro diakok osszesitett atlagat
+        ///</summary>
+        public double GetSchoolAVG(int schoolId)
+        {
+            School school = Read(schoolId);
+            ICollection<Student> students = school.Students;
+
+            double sum = 0;
+            foreach (Student st in students)
+            {
+                sum += st.GradesAVG;
+            }
+            return sum / students.Count();
+        }
     }
 }
