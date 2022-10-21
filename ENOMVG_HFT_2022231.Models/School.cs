@@ -24,15 +24,22 @@ namespace ENOMVG_HFT_2022231.Models
         [Required]
         public string Type { get; set; }  //jövőben enum
 
+        public virtual ICollection<School> Schools { get; set; }
+
+        public virtual ICollection<Teacher> Teachers { get; set; };
+
         public School()
         {
-
+            Schools = new HashSet<School>();
+            Teachers = new HashSet<Teacher>();
         }
         public School(int id, string name, string type)
         {
             Name = name;
             Type = type;
             Id = id;
+            Schools = new HashSet<School>();
+            Teachers = new HashSet<Teacher>();
         }
 
         public School(string input)
@@ -41,6 +48,8 @@ namespace ENOMVG_HFT_2022231.Models
             Id = int.Parse(inputArr[0]); //must specify auto generated keys in hasdata
             Name = inputArr[1];
             Type = inputArr[2];
+            Schools = new HashSet<School>();
+            Teachers = new HashSet<Teacher>();
         }
 
     }

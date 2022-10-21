@@ -21,6 +21,8 @@ namespace ENOMVG_HFT_2022231.Models
         [ForeignKey("SchoolId")]
         public int SchoolId { get; set; }
 
+        public virtual School School { get; set; }
+
         [Required]
         [Range(6,28)]
         public int Age { get; set; }

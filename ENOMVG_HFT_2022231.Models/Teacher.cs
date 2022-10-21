@@ -21,6 +21,8 @@ namespace ENOMVG_HFT_2022231.Models
         [ForeignKey("SchoolId")]
         public int SchoolId { get; set;}
 
+        public virtual School School { get; set; }
+
         [Required]        
         public string MainSubject { get; set;}
         public Teacher()
