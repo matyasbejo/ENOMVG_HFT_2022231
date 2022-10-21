@@ -8,7 +8,7 @@ using ENOMVG_HFT_2022231.Models;
 
 namespace ENOMVG_HFT_2022231.Logic
 {
-    internal class StudentLogic
+    public class StudentLogic
     {
         IRepository<Student> repository;
 
