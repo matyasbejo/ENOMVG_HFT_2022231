@@ -59,7 +59,7 @@ namespace ENOMVG_HFT_2022231.Models
             string[] inputArr = input.Split("#");
             Id = int.Parse(inputArr[0]); //must specify auto generated keys in hasdata
             Name = inputArr[1];
-            MainSubject = inputArr[2];
+            MainSubject = (subj)Enum.Parse(typeof(subj), inputArr[2]);
             SchoolId = int.Parse(inputArr[3]);
         }
     }
