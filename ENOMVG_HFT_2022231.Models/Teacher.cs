@@ -8,6 +8,18 @@ using System.Threading.Tasks;
 
 namespace ENOMVG_HFT_2022231.Models
 {
+    public enum subj
+    {
+        ESTeacher, //elementary school teacher (magyar tanító)
+        History,
+        Physics,
+        German,
+        Geoghraphy,
+        PE,
+        IT,
+        English,
+        Literature
+    }
     public class Teacher
     {
         [Key]
@@ -24,7 +36,7 @@ namespace ENOMVG_HFT_2022231.Models
         public virtual School School { get; set; }
 
         [Required]        
-        public string MainSubject { get; set;}
+        public subj MainSubject { get; set;}
         
         [Required]
         public int Salary { get; set; }
@@ -33,7 +45,7 @@ namespace ENOMVG_HFT_2022231.Models
         {
 
         }
-        public Teacher(int id, string name, int salary, string subject, int schoolId)
+        public Teacher(int id, string name, int salary, subj subject, int schoolId)
         {
             Id = id;
             Name = name;

@@ -52,12 +52,12 @@ namespace ENOMVG_HFT_2022231.Repository
 
             modelBuilder.Entity<Teacher>().HasData(new Teacher[]
             {
-                new Teacher(1, "Zsoldos Gyöngyi", 270_000, "tanító",3),
-                new Teacher(2, "Márti néni", 245_330, "tanító",3),
-                new Teacher(3, "Lang", 400_000, "fizika", 1),
-                new Teacher(4, "Jakab", 431_000, "német", 1),
-                new Teacher(5, "Kovács Antal József", 220_000, "történelem", 2),
-                new Teacher(6, "Kiss Egér", 298_000, "Földrajz", 2)
+                new Teacher(1, "Zsoldos Gyöngyi", 270_000, subj.ESTeacher,3),
+                new Teacher(2, "Márti néni", 245_330, subj.ESTeacher,3),
+                new Teacher(3, "Lang", 400_000, subj.Physics, 1),
+                new Teacher(4, "Jakab", 431_000, subj.German, 1),
+                new Teacher(5, "Kovács Antal József", 220_000, subj.History, 2),
+                new Teacher(6, "Kiss Egér", 298_000, subj.PE, 2)
             });
 
             modelBuilder.Entity<Student>().HasData(new Student[]
