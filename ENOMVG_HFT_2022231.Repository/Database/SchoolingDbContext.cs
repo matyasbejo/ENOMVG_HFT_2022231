@@ -45,9 +45,9 @@ namespace ENOMVG_HFT_2022231.Repository
 
             modelBuilder.Entity<School>().HasData(new School[]
             {
-                new School(1, "Soproni Széchenyi István Gimnázium", "Gimnázium"),
-                new School(2, "Berzsenyi Dániel Evangélikus (Líceum) Gimnázium és Kollégium", "Gimnázium"),
-                new School(3, "Soproni Deák Téri Általános Iskola", "Általános")
+                new School(1, "Soproni Széchenyi István Gimnázium", stype.High),
+                new School(2, "Berzsenyi Dániel Evangélikus (Líceum) Gimnázium és Kollégium", stype.High),
+                new School(3, "Soproni Deák Téri Általános Iskola", stype.Primary)
             });
 
             modelBuilder.Entity<Teacher>().HasData(new Teacher[]

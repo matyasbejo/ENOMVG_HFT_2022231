@@ -8,6 +8,13 @@ using System.Threading.Tasks;
 
 namespace ENOMVG_HFT_2022231.Models
 {
+    public enum stype
+    {
+        Primary,
+        Secondary, //középsuli
+        High, //gimi
+
+    }
     public class School
     {
         [Key]
@@ -22,7 +29,7 @@ namespace ENOMVG_HFT_2022231.Models
         public int Age { get; set; }
 
         [Required]
-        public string Type { get; set; }  //jövőben enum
+        public stype Type { get; set; }
 
         public virtual ICollection<Student> Students { get; set; }
 
@@ -33,7 +40,7 @@ namespace ENOMVG_HFT_2022231.Models
             Students = new HashSet<Student>();
             Teachers = new HashSet<Teacher>();
         }
-        public School(int id, string name, string type)
+        public School(int id, string name, stype type)
         {
             Name = name;
             Type = type;
@@ -47,7 +54,7 @@ namespace ENOMVG_HFT_2022231.Models
             string[] inputArr = input.Split("#");
             Id = int.Parse(inputArr[0]); //must specify auto generated keys in hasdata
             Name = inputArr[1];
-            Type = inputArr[2];
+            Type = (stype)Enum.Parse(typeof(stype), inputArr[2]);
             Students = new HashSet<Student>();
             Teachers = new HashSet<Teacher>();
         }
