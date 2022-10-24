@@ -25,16 +25,21 @@ namespace ENOMVG_HFT_2022231.Models
 
         [Required]        
         public string MainSubject { get; set;}
+        
+        [Required]
+        public int Salary { get; set; }
+
         public Teacher()
         {
 
         }
-        public Teacher(int id, string name, string subject, int schoolId)
+        public Teacher(int id, string name, int salary, string subject, int schoolId)
         {
             Id = id;
             Name = name;
             MainSubject = subject;
             SchoolId = schoolId;
+            Salary = salary;
         }
 
         public Teacher(string input)
