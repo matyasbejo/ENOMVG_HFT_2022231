@@ -57,7 +57,17 @@ namespace ENOMVG_HFT_2022231.Logic
             IQueryable<Teacher> all = this.repository.ReadAll();
             return all.First(t => t.Name.Equals(name));
         }
+
+        /// <summary>
+        /// Returns the teacher who has the highest salary
+        /// </summary>
+        /// <returns></returns>
+        public Teacher BestPaidTeacher()
+        {
+            IQueryable<Teacher> teachers = this.repository.ReadAll();
+            int maxsalary = teachers.Max(Teacher => Teacher.Salary);
+            return teachers.First(t => t.Salary.Equals(maxsalary));
+        } 
     }
 
-}
 }
