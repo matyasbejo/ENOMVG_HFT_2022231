@@ -58,5 +58,13 @@ namespace ENOMVG_HFT_2022231.Logic
             }
             return sum / students.Count();
         }
+        /// <summary>
+        /// Read metódus név alapján - lassabb
+        /// </summary>
+        public School ReadName(string name)
+        {
+            IQueryable<School> all = this.repository.ReadAll();
+            return all.First(t => t.Name.Equals(name));
+        }
     }
 }

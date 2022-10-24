@@ -44,5 +44,13 @@ namespace ENOMVG_HFT_2022231.Logic
             this.repository.Update(student);
         }
         //Non CRUD methods
+        /// <summary>
+        /// Read metódus név alapján - lassabb
+        /// </summary>
+        public Student ReadName(string name)
+        {
+            IQueryable<Student> all = this.repository.ReadAll();
+            return all.First(t => t.Name.Equals(name));
+        }
     }
 }

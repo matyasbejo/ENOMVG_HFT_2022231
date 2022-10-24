@@ -47,5 +47,17 @@ namespace ENOMVG_HFT_2022231.Logic
         {
             this.repository.Update(teacher);
         }
+
+        //Non CRUD methods
+        /// <summary>
+        /// Read metódus név alapján - lassabb
+        /// </summary>
+        public Teacher ReadName(string name)
+        {
+            IQueryable<Teacher> all = this.repository.ReadAll();
+            return all.First(t => t.Name.Equals(name));
+        }
     }
+
+}
 }
