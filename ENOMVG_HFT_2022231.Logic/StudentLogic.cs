@@ -63,5 +63,16 @@ namespace ENOMVG_HFT_2022231.Logic
             double bestavg = students.Max(t => t.GradesAVG);
             return students.First(t => t.GradesAVG == bestavg);
         }
+
+        /// <summary>
+        /// Returns the avarage age of students
+        /// </summary>
+        /// <returns></returns>
+        public int AvarageAge()
+        {
+            IQueryable<Student> students = this.repository.ReadAll();
+            int sum = students.Sum(t => t.Age) / students.Count();
+            return sum;
+        } 
     }
 }
