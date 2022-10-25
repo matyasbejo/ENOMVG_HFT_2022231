@@ -66,5 +66,16 @@ namespace ENOMVG_HFT_2022231.Logic
             IQueryable<School> all = this.repository.ReadAll();
             return all.First(t => t.Name.Equals(name));
         }
+
+        /// <summary>
+        /// Returns how many people are working AND learning there
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public int CountAll(int id)
+        {
+            School sch = repository.Read(id);
+            return sch.Students.Count()+sch.Teachers.Count();
+        }
     }
 }
