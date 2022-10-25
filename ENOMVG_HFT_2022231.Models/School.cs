@@ -40,13 +40,17 @@ namespace ENOMVG_HFT_2022231.Models
             Students = new HashSet<Student>();
             Teachers = new HashSet<Teacher>();
         }
-        public School(int id, string name, stype type)
+        public School(string name, stype type)
         {
             Name = name;
             Type = type;
-            Id = id;
             Students = new HashSet<Student>();
             Teachers = new HashSet<Teacher>();
+        }
+
+        public School(int id, string name, stype type) : this(name, type)
+        {
+            Id = id;
         }
 
         public School(string input)

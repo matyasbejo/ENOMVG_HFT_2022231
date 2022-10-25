@@ -45,13 +45,18 @@ namespace ENOMVG_HFT_2022231.Models
         {
 
         }
-        public Teacher(int id, string name, int salary, subj subject, int schoolId)
+        public Teacher(string name, int salary, subj subject, int schoolId)
         {
-            Id = id;
             Name = name;
             MainSubject = subject;
             SchoolId = schoolId;
             Salary = salary;
+        }
+
+        public Teacher(int id, string name, int salary, subj subject, int schoolId)
+            : this(name, salary, subject, schoolId)    
+        {
+            Id = id;
         }
 
         public Teacher(string input)

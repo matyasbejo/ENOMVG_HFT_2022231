@@ -35,13 +35,18 @@ namespace ENOMVG_HFT_2022231.Models
 
         }
 
-        public Student(int id, string Name, int Age, int schoolId, double gradesAVG)
+        public Student(string Name, int Age, int schoolId, double gradesAVG)
         {
             this.Name = Name;
             SchoolId = schoolId;
             this.Age = Age;
-            Id = id;
             GradesAVG = gradesAVG;
+        }
+
+        public Student(int id, string Name, int Age, int schoolId, double gradesAVG)
+            : this(Name, Age, schoolId, gradesAVG)
+        {
+            Id = id;
         }
 
         public Student(string input)
