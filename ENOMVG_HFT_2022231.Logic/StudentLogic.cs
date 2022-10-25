@@ -52,5 +52,16 @@ namespace ENOMVG_HFT_2022231.Logic
             IQueryable<Student> all = this.repository.ReadAll();
             return all.First(t => t.Name.Equals(name));
         }
+
+        /// <summary>
+        /// Returns the student with the biggest avarage grade
+        /// </summary>
+        /// <returns></returns>
+        public Student BestStudent()
+        {
+            IQueryable<Student> students = this.repository.ReadAll();
+            double bestavg = students.Max(t => t.GradesAVG);
+            return students.First(t => t.GradesAVG == bestavg);
+        }
     }
 }
