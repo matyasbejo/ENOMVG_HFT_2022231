@@ -62,12 +62,12 @@ namespace ENOMVG_HFT_2022231.Logic
         /// Returns the teacher who has the highest salary
         /// </summary>
         /// <returns></returns>
-        public Teacher BestPaidTeacher()
+        public Teacher MostPaidTeacher()
         {
             IQueryable<Teacher> teachers = this.repository.ReadAll();
             int maxsalary = teachers.Max(Teacher => Teacher.Salary);
             return teachers.First(t => t.Salary.Equals(maxsalary));
-        } 
+        }
     }
 
 }
