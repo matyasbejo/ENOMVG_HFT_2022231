@@ -68,6 +68,17 @@ namespace ENOMVG_HFT_2022231.Logic
             int maxsalary = teachers.Max(Teacher => Teacher.Salary);
             return teachers.First(t => t.Salary.Equals(maxsalary));
         }
+
+        /// <summary>
+        /// Returns the teacher who has the lowest salary
+        /// </summary>
+        /// <returns></returns>
+        public Teacher LeastPaidTeacher()
+        {
+            IQueryable<Teacher> teachers = this.repository.ReadAll();
+            int minsalary = teachers.Min(Teacher => Teacher.Salary);
+            return teachers.First(t => t.Salary.Equals(minsalary));
+        }
     }
 
 }
