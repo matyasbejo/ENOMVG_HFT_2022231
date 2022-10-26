@@ -8,7 +8,7 @@ using ENOMVG_HFT_2022231.Models;
 
 namespace ENOMVG_HFT_2022231.Logic
 {
-    public class SchoolLogic
+    public class SchoolLogic : ISchoolLogic
     {
         IRepository<School> repository;
 
@@ -18,7 +18,7 @@ namespace ENOMVG_HFT_2022231.Logic
         }
         public void Create(School item)
         {
-             this.repository.Create(item);
+            this.repository.Create(item);
         }
         public void Delete(int id)
         {
@@ -75,7 +75,7 @@ namespace ENOMVG_HFT_2022231.Logic
         public int CountAll(int id)
         {
             School sch = repository.Read(id);
-            return sch.Students.Count()+sch.Teachers.Count();
+            return sch.Students.Count() + sch.Teachers.Count();
         }
     }
 }

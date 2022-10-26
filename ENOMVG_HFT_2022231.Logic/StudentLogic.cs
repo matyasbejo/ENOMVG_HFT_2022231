@@ -8,7 +8,7 @@ using ENOMVG_HFT_2022231.Models;
 
 namespace ENOMVG_HFT_2022231.Logic
 {
-    public class StudentLogic
+    public class StudentLogic : IStudentLogic
     {
         IRepository<Student> repository;
 
@@ -73,7 +73,7 @@ namespace ENOMVG_HFT_2022231.Logic
             IQueryable<Student> students = this.repository.ReadAll();
             int sum = students.Sum(t => t.Age) / students.Count();
             return sum;
-        } 
+        }
 
         /// <summary>
         /// Returns the students under the avarage age

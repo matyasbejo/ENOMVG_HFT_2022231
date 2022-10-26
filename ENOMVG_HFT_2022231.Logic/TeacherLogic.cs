@@ -8,7 +8,7 @@ using ENOMVG_HFT_2022231.Models;
 
 namespace ENOMVG_HFT_2022231.Logic
 {
-    public class TeacherLogic
+    public class TeacherLogic : ITeacherLogic
     {
         IRepository<Teacher> repository;
 
