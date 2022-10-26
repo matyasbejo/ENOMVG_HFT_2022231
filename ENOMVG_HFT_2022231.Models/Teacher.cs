@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ENOMVG_HFT_2022231.Models
@@ -33,6 +34,7 @@ namespace ENOMVG_HFT_2022231.Models
         [ForeignKey("SchoolId")]
         public int SchoolId { get; set;}
 
+        [JsonIgnore]
         public virtual School School { get; set; }
 
         [Required]        
