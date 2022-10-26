@@ -67,6 +67,6 @@ namespace ENOMVG_HFT_2022231.Repository
                 new Student(3, "Hargitai Benke", 17, 2, 4.76),
                 new Student(4, "Dejó Dorka", 13, 3, 4.453)
             });
-        } 
+        }
     }
 }
