@@ -35,27 +35,48 @@ namespace ENOMVG_HFT_2022231.Models
 
         }
 
-        public Student(string Name, int Age, int schoolId, double gradesAVG)
+        /// <summary>
+        /// Main constructor
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <param name="Age"></param>
+        /// <param name="school"></param>
+        /// <param name="schoolId"></param>
+        /// <param name="gradesAVG"></param>
+        public Student(string Name, int Age, School school, int schoolId, double gradesAVG)
+            :this(Name, Age, schoolId, gradesAVG)
+        {
+            this.School = school;
+        }
+
+        /// <summary>
+        /// this constructor is only used in DbContext
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="Name"></param>
+        /// <param name="Age"></param>
+        /// <param name="school"></param>
+        /// <param name="schoolId"></param>
+        /// <param name="gradesAVG"></param>
+        public Student(int id, string Name, int Age,  int schoolId, double gradesAVG)
+            : this(Name, Age, schoolId, gradesAVG)
+        {
+            Id = id;
+        }
+        
+        /// <summary>
+        /// Base constuctor
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <param name="Age"></param>
+        /// <param name="schoolId"></param>
+        /// <param name="gradesAVG"></param>
+        private Student(string Name, int Age, int schoolId, double gradesAVG)
         {
             this.Name = Name;
             SchoolId = schoolId;
             this.Age = Age;
             GradesAVG = gradesAVG;
-        }
-
-        public Student(int id, string Name, int Age, int schoolId, double gradesAVG)
-            : this(Name, Age, schoolId, gradesAVG)
-        {
-            Id = id;
-        }
-
-        public Student(string input)
-        {
-            string[] inputArr = input.Split("#");
-            Id = int.Parse(inputArr[0]); //must specify auto generated keys in hasdata
-            Name = inputArr[1];
-            Age = int.Parse(inputArr[2]);
-            SchoolId = int.Parse(inputArr[3]);
         }
     }
 }

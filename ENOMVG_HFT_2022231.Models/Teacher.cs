@@ -45,27 +45,48 @@ namespace ENOMVG_HFT_2022231.Models
         {
 
         }
-        public Teacher(string name, int salary, subj subject, int schoolId)
+
+        /// <summary>
+        ///Main constructor
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="salary"></param>
+        /// <param name="subject"></param>
+        /// <param name="school"></param>
+        /// <param name="schoolId"></param>
+        public Teacher(string name, int salary, subj subject, School school, int schoolId)
+            :this(name,salary,subject,schoolId)
         {
-            Name = name;
-            MainSubject = subject;
-            SchoolId = schoolId;
-            Salary = salary;
+            this.School = school;
         }
 
+        /// <summary>
+        /// this constructor is only used in DbContext
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <param name="salary"></param>
+        /// <param name="subject"></param>
+        /// <param name="schoolId"></param>
         public Teacher(int id, string name, int salary, subj subject, int schoolId)
             : this(name, salary, subject, schoolId)    
         {
             Id = id;
         }
 
-        public Teacher(string input)
+        /// <summary>
+        /// Base constructor
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="salary"></param>
+        /// <param name="subject"></param>
+        /// <param name="schoolId"></param>
+        private Teacher(string name, int salary, subj subject, int schoolId)
         {
-            string[] inputArr = input.Split("#");
-            Id = int.Parse(inputArr[0]); //must specify auto generated keys in hasdata
-            Name = inputArr[1];
-            MainSubject = (subj)Enum.Parse(typeof(subj), inputArr[2]);
-            SchoolId = int.Parse(inputArr[3]);
+            Name = name;
+            MainSubject = subject;
+            SchoolId = schoolId;
+            Salary = salary;
         }
     }
 }

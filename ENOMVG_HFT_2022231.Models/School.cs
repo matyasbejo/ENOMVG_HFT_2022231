@@ -37,9 +37,25 @@ namespace ENOMVG_HFT_2022231.Models
 
         public School()
         {
-            Students = new HashSet<Student>();
-            Teachers = new HashSet<Teacher>();
+
         }
+
+        /// <summary>
+        /// this constructor is only used in DbContext
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <param name="type"></param>
+        public School(int id, string name, stype type) : this(name, type)
+        {
+            Id = id;
+        }
+
+        /// <summary>
+        /// Main constructor
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="type"></param>
         public School(string name, stype type)
         {
             Name = name;
@@ -47,21 +63,5 @@ namespace ENOMVG_HFT_2022231.Models
             Students = new HashSet<Student>();
             Teachers = new HashSet<Teacher>();
         }
-
-        public School(int id, string name, stype type) : this(name, type)
-        {
-            Id = id;
-        }
-
-        public School(string input)
-        {
-            string[] inputArr = input.Split("#");
-            Id = int.Parse(inputArr[0]); //must specify auto generated keys in hasdata
-            Name = inputArr[1];
-            Type = (stype)Enum.Parse(typeof(stype), inputArr[2]);
-            Students = new HashSet<Student>();
-            Teachers = new HashSet<Teacher>();
-        }
-
     }
 }
