@@ -42,13 +42,13 @@ namespace ENOMVG_HFT_2022231.Models
         /// </summary>
         /// <param name="Name"></param>
         /// <param name="Age"></param>
-        /// <param name="school"></param>
-        /// <param name="schoolId"></param>
-        /// <param name="gradesAVG"></param>
-        public Student(string Name, int Age, School school, int schoolId, double gradesAVG)
-            :this(Name, Age, schoolId, gradesAVG)
+        /// <param name="School"></param>
+        /// <param name="SchoolId"></param>
+        /// <param name="GradesAVG"></param>
+        public Student(string Name, int Age, School School, int SchoolId, double GradesAVG)
+            :this(Name, Age, SchoolId, GradesAVG)
         {
-            this.School = school;
+            this.School = School;
         }
 
         /// <summary>
@@ -58,10 +58,10 @@ namespace ENOMVG_HFT_2022231.Models
         /// <param name="Name"></param>
         /// <param name="Age"></param>
         /// <param name="school"></param>
-        /// <param name="schoolId"></param>
-        /// <param name="gradesAVG"></param>
-        public Student(int id, string Name, int Age,  int schoolId, double gradesAVG)
-            : this(Name, Age, schoolId, gradesAVG)
+        /// <param name="SchoolId"></param>
+        /// <param name="GradesAVG"></param>
+        public Student(int id, string Name, int Age,  int SchoolId, double GradesAVG)
+            : this(Name, Age, SchoolId, GradesAVG)
         {
             Id = id;
         }
@@ -71,14 +71,14 @@ namespace ENOMVG_HFT_2022231.Models
         /// </summary>
         /// <param name="Name"></param>
         /// <param name="Age"></param>
-        /// <param name="schoolId"></param>
-        /// <param name="gradesAVG"></param>
-        private Student(string Name, int Age, int schoolId, double gradesAVG)
+        /// <param name="SchoolId"></param>
+        /// <param name="GradesAVG"></param>
+        private Student(string Name, int Age, int SchoolId, double GradesAVG)
         {
             this.Name = Name;
-            SchoolId = schoolId;
+            this.SchoolId = SchoolId;
             this.Age = Age;
-            GradesAVG = gradesAVG;
+            this.GradesAVG = GradesAVG;
         }
     }
 }
