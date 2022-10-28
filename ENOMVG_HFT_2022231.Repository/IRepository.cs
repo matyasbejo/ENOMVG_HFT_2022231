@@ -9,10 +9,10 @@ namespace ENOMVG_HFT_2022231.Repository
 {
     public interface IRepository<T> where T : class
     {
-        void Create(T _item);
-        T Read(int _id);
+        void Create(T item);
+        T Read(int id);
         IQueryable<T> ReadAll();
-        void Update(T _school);
-        void Delete(int _id);
+        void Update(T school);
+        void Delete(int id);
     }
 }

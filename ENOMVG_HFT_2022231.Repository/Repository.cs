@@ -10,19 +10,19 @@ namespace ENOMVG_HFT_2022231.Repository
     public abstract class Repository<T> : IRepository<T> where T : class
     {
         protected SchollingDbContext context;
-        public Repository(SchollingDbContext _context)
+        public Repository(SchollingDbContext context)
         {
-            this.context = _context;
+            this.context = context;
         }
-        public void Create(T _item)
+        public void Create(T item)
         {
-            context.Set<T>().Add(_item);
+            context.Set<T>().Add(item);
             context.SaveChanges();
         }
 
-        public void Delete(int _id)
+        public void Delete(int id)
         {
-            context.Set<T>().Remove(Read(_id));
+            context.Set<T>().Remove(Read(id));
             context.SaveChanges();
         }
 
@@ -31,7 +31,7 @@ namespace ENOMVG_HFT_2022231.Repository
             return context.Set<T>();
         }
 
-        public abstract T Read(int _id);
-        public abstract void Update(T _item);
+        public abstract T Read(int id);
+        public abstract void Update(T item);
     }
 }

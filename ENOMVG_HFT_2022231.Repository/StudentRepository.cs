@@ -9,21 +9,21 @@ namespace ENOMVG_HFT_2022231.Repository
 {
     public class StudentRepository : Repository<Student>, IRepository<Student>
     {
-        public StudentRepository(SchollingDbContext _ctx) : base(_ctx)
+        public StudentRepository(SchollingDbContext ctx) : base(ctx)
         {
 
         }
-        public override Student Read(int _id)
+        public override Student Read(int id)
         {
-            return this.context.Students.First(x => x.Id == _id);
+            return this.context.Students.First(x => x.Id == id);
         }
 
-        public override void Update(Student _item)
+        public override void Update(Student item)
         {
-            var old = Read(_item.Id);
+            var old = Read(item.Id);
             foreach (var property in old.GetType().GetProperties())
             {
-                property.SetValue(old, property.GetValue(_item));
+                property.SetValue(old, property.GetValue(item));
             }
             context.SaveChanges();
         }
