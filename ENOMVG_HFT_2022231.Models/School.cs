@@ -43,23 +43,23 @@ namespace ENOMVG_HFT_2022231.Models
         /// <summary>
         /// this constructor is only used in DbContext
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="name"></param>
-        /// <param name="type"></param>
-        public School(int id, string name, stype type) : this(name, type)
+        /// <param name="_id"></param>
+        /// <param name="_name"></param>
+        /// <param name="_type"></param>
+        public School(int _id, string _name, stype _type) : this(_name, _type)
         {
-            Id = id;
+            Id = _id;
         }
 
         /// <summary>
         /// Main constructor
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="type"></param>
-        public School(string name, stype type)
+        /// <param name="_name"></param>
+        /// <param name="_type"></param>
+        public School(string _name, stype _type)
         {
-            Name = name;
-            Type = type;
+            Name = _name;
+            Type = _type;
             Students = new HashSet<Student>();
             Teachers = new HashSet<Teacher>();
         }

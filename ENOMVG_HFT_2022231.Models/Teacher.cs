@@ -51,44 +51,44 @@ namespace ENOMVG_HFT_2022231.Models
         /// <summary>
         ///Main constructor
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="salary"></param>
-        /// <param name="subject"></param>
-        /// <param name="school"></param>
-        /// <param name="schoolId"></param>
-        public Teacher(string name, int salary, subj subject, School school, int schoolId)
-            :this(name,salary,subject,schoolId)
+        /// <param name="_name"></param>
+        /// <param name="_salary"></param>
+        /// <param name="_subject"></param>
+        /// <param name="_school"></param>
+        /// <param name="_schoolid"></param>
+        public Teacher(string _name, int _salary, subj _subject, School _school, int _schoolid)
+            :this(_name,_salary,_subject,_schoolid)
         {
-            this.School = school;
+            this.School = _school;
         }
 
         /// <summary>
         /// this constructor is only used in DbContext
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="name"></param>
-        /// <param name="salary"></param>
-        /// <param name="subject"></param>
-        /// <param name="schoolId"></param>
-        public Teacher(int id, string name, int salary, subj subject, int schoolId)
-            : this(name, salary, subject, schoolId)    
+        /// <param name="_id"></param>
+        /// <param name="_name"></param>
+        /// <param name="_salary"></param>
+        /// <param name="_subject"></param>
+        /// <param name="_schoolId"></param>
+        public Teacher(int _id, string _name, int _salary, subj _subject, int _schoolId)
+            : this(_name, _salary, _subject, _schoolId)    
         {
-            Id = id;
+            Id = _id;
         }
 
         /// <summary>
         /// Base constructor
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="salary"></param>
-        /// <param name="subject"></param>
-        /// <param name="schoolId"></param>
-        private Teacher(string name, int salary, subj subject, int schoolId)
+        /// <param name="_name"></param>
+        /// <param name="_salary"></param>
+        /// <param name="_subject"></param>
+        /// <param name="_schoolId"></param>
+        private Teacher(string _name, int _salary, subj _subject, int _schoolId)
         {
-            Name = name;
-            MainSubject = subject;
-            SchoolId = schoolId;
-            Salary = salary;
+            Name = _name;
+            MainSubject = _subject;
+            SchoolId = _schoolId;
+            Salary = _salary;
         }
     }
 }

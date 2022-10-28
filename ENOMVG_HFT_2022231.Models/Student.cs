@@ -40,45 +40,45 @@ namespace ENOMVG_HFT_2022231.Models
         /// <summary>
         /// Main constructor
         /// </summary>
-        /// <param name="Name"></param>
-        /// <param name="Age"></param>
-        /// <param name="School"></param>
-        /// <param name="SchoolId"></param>
-        /// <param name="GradesAVG"></param>
-        public Student(string Name, int Age, School School, int SchoolId, double GradesAVG)
-            :this(Name, Age, SchoolId, GradesAVG)
+        /// <param name="_name"></param>
+        /// <param name="_age"></param>
+        /// <param name="_school"></param>
+        /// <param name="_schoolid"></param>
+        /// <param name="_gradesavg"></param>
+        public Student(string _name, int _age, School _school, int _schoolid, double _gradesavg)
+            :this(_name, _age, _schoolid, _gradesavg)
         {
-            this.School = School;
+            this.School = _school;
         }
 
         /// <summary>
         /// this constructor is only used in DbContext
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="Name"></param>
-        /// <param name="Age"></param>
+        /// <param name="_id"></param>
+        /// <param name="_name"></param>
+        /// <param name="_age"></param>
         /// <param name="school"></param>
-        /// <param name="SchoolId"></param>
-        /// <param name="GradesAVG"></param>
-        public Student(int id, string Name, int Age,  int SchoolId, double GradesAVG)
-            : this(Name, Age, SchoolId, GradesAVG)
+        /// <param name="_schoolid"></param>
+        /// <param name="_gradesavg"></param>
+        public Student(int _id, string _name, int _age,  int _schoolid, double _gradesavg)
+            : this(_name, _age, _schoolid, _gradesavg)
         {
-            Id = id;
+            Id = _id;
         }
         
         /// <summary>
         /// Base constuctor
         /// </summary>
-        /// <param name="Name"></param>
-        /// <param name="Age"></param>
-        /// <param name="SchoolId"></param>
-        /// <param name="GradesAVG"></param>
-        private Student(string Name, int Age, int SchoolId, double GradesAVG)
+        /// <param name="_name"></param>
+        /// <param name="_age"></param>
+        /// <param name="_schoolid"></param>
+        /// <param name="_gradesavg"></param>
+        private Student(string _name, int _age, int _schoolid, double _gradesavg)
         {
-            this.Name = Name;
-            this.SchoolId = SchoolId;
-            this.Age = Age;
-            this.GradesAVG = GradesAVG;
+            this.Name = _name;
+            this.SchoolId = _schoolid;
+            this.Age = _age;
+            this.GradesAVG = _gradesavg;
         }
     }
 }
