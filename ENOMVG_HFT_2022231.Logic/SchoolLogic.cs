@@ -16,17 +16,17 @@ namespace ENOMVG_HFT_2022231.Logic
         {
             repository = _screpo;
         }
-        public void Create(School item)
+        public void Create(School _item)
         {
-            this.repository.Create(item);
+            this.repository.Create(_item);
         }
-        public void Delete(int id)
+        public void Delete(int _id)
         {
-            this.repository.Delete(id);
+            this.repository.Delete(_id);
         }
-        public School Read(int id)
+        public School Read(int _id)
         {
-            var school = this.repository.Read(id);
+            var school = this.repository.Read(_id);
             if (school == null)
             {
                 throw new ArgumentException("Movie not exists");
@@ -38,43 +38,43 @@ namespace ENOMVG_HFT_2022231.Logic
         {
             return this.repository.ReadAll();
         }
-        public void Update(School school)
+        public void Update(School _school)
         {
-            this.repository.Update(school);
+            this.repository.Update(_school);
         }
         //Non CRUD methods
         ///<summary>
         ///Visszaadja az iskolaba jaro diakok osszesitett atlagat
         ///</summary>
-        public double GetSchoolAVG(int schoolId)
+        public double GetSchoolAVG(int _schoolId)
         {
-            School school = Read(schoolId);
-            ICollection<Student> students = school.Students;
+            School school = Read(_schoolId);
+            ICollection<Student> _students = school.Students;
 
             double sum = 0;
-            foreach (Student st in students)
+            foreach (Student st in _students)
             {
                 sum += st.GradesAVG;
             }
-            return sum / students.Count();
+            return sum / _students.Count();
         }
         /// <summary>
         /// Read metódus név alapján - lassabb
         /// </summary>
-        public School ReadName(string name)
+        public School ReadName(string _name)
         {
             IQueryable<School> all = this.repository.ReadAll();
-            return all.First(t => t.Name.Equals(name));
+            return all.First(t => t.Name.Equals(_name));
         }
 
         /// <summary>
         /// Returns how many people are working AND learning there
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="_id"></param>
         /// <returns></returns>
-        public int CountAll(int id)
+        public int CountAll(int _id)
         {
-            School sch = repository.Read(id);
+            School sch = repository.Read(_id);
             return sch.Students.Count() + sch.Teachers.Count();
         }
     }

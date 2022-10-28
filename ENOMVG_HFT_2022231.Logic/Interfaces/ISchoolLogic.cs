@@ -5,13 +5,13 @@ namespace ENOMVG_HFT_2022231.Logic
 {
     public interface ISchoolLogic
     {
-        int CountAll(int id);
-        void Create(School item);
-        void Delete(int id);
-        double GetSchoolAVG(int schoolId);
-        School Read(int id);
+        int CountAll(int _id);
+        void Create(School _item);
+        void Delete(int _id);
+        double GetSchoolAVG(int _schoolId);
+        School Read(int _id);
         IQueryable<School> ReadAll();
-        School ReadName(string name);
-        void Update(School school);
+        School ReadName(string _name);
+        void Update(School _school);
     }
 }

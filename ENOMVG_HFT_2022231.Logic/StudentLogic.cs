@@ -17,17 +17,17 @@ namespace ENOMVG_HFT_2022231.Logic
             repository = _strepo;
         }
 
-        public void Create(Student item)
+        public void Create(Student _item)
         {
-            this.repository.Create(item);
+            this.repository.Create(_item);
         }
-        public void Delete(int id)
+        public void Delete(int _id)
         {
-            this.repository.Delete(id);
+            this.repository.Delete(_id);
         }
-        public Student Read(int id)
+        public Student Read(int _id)
         {
-            var student = this.repository.Read(id);
+            var student = this.repository.Read(_id);
             if (student == null)
             {
                 throw new ArgumentException("Movie not exists");
@@ -39,18 +39,18 @@ namespace ENOMVG_HFT_2022231.Logic
         {
             return this.repository.ReadAll();
         }
-        public void Update(Student student)
+        public void Update(Student _student)
         {
-            this.repository.Update(student);
+            this.repository.Update(_student);
         }
         //Non CRUD methods
         /// <summary>
         /// Read metódus név alapján - lassabb
         /// </summary>
-        public Student ReadName(string name)
+        public Student ReadName(string _name)
         {
             IQueryable<Student> all = this.repository.ReadAll();
-            return all.First(t => t.Name.Equals(name));
+            return all.First(t => t.Name.Equals(_name));
         }
 
         /// <summary>

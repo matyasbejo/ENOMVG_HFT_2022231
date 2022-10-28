@@ -17,19 +17,19 @@ namespace ENOMVG_HFT_2022231.Logic
             repository = _tchrepo;
         }
 
-        public void Create(Teacher item)
+        public void Create(Teacher _item)
         {
-            this.repository.Create(item);
+            this.repository.Create(_item);
         }
 
-        public void Delete(int id)
+        public void Delete(int _id)
         {
-            this.repository.Delete(id);
+            this.repository.Delete(_id);
         }
 
-        public Teacher Read(int id)
+        public Teacher Read(int _id)
         {
-            var teacher = this.repository.Read(id);
+            var teacher = this.repository.Read(_id);
             if (teacher == null)
             {
                 throw new ArgumentException("Movie not exists");
@@ -43,19 +43,19 @@ namespace ENOMVG_HFT_2022231.Logic
             return this.repository.ReadAll();
         }
 
-        public void Update(Teacher teacher)
+        public void Update(Teacher _teacher)
         {
-            this.repository.Update(teacher);
+            this.repository.Update(_teacher);
         }
 
         //Non CRUD methods
         /// <summary>
         /// Read metódus név alapján - lassabb
         /// </summary>
-        public Teacher ReadName(string name)
+        public Teacher ReadName(string _name)
         {
             IQueryable<Teacher> all = this.repository.ReadAll();
-            return all.First(t => t.Name.Equals(name));
+            return all.First(t => t.Name.Equals(_name));
         }
 
         /// <summary>

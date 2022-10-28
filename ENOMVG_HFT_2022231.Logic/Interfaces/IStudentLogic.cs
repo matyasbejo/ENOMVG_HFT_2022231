@@ -7,12 +7,12 @@ namespace ENOMVG_HFT_2022231.Logic
     {
         int AvarageAge();
         Student BestStudent();
-        void Create(Student item);
-        void Delete(int id);
-        Student Read(int id);
+        void Create(Student _item);
+        void Delete(int _id);
+        Student Read(int _id);
         IQueryable<Student> ReadAll();
-        Student ReadName(string name);
-        void Update(Student student);
+        Student ReadName(string _name);
+        void Update(Student _student);
         IQueryable<Student> YoungStudents();
     }
 }
