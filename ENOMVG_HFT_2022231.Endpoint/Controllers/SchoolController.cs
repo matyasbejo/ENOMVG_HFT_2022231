@@ -12,9 +12,9 @@ namespace ENOMVG_HFT_2022231.Endpoint.Controllers
     {
         ISchoolLogic logic;
 
-        public SchoolController(ISchoolLogic logic)
+        public SchoolController(ISchoolLogic _logic)
         {
-            this.logic = logic;
+            this.logic = _logic;
         }
 
         // GET: api/<SchoolController>
@@ -26,30 +26,30 @@ namespace ENOMVG_HFT_2022231.Endpoint.Controllers
 
         // GET api/<SchoolController>/5
         [HttpGet("{id}")]
-        public School Read(int id)
+        public School Read(int _id)
         {
-            return logic.Read(id);
+            return logic.Read(_id);
         }
 
         // POST api/<SchoolController>
         [HttpPost]
-        public void Create([FromBody] School school)
+        public void Create([FromBody] School _school)
         {
-            this.logic.Create(school);
+            this.logic.Create(_school);
         }
 
         // PUT api/<SchoolController>/5
         [HttpPut]
-        public void Update([FromBody] School school)
+        public void Update([FromBody] School _school)
         {
-            logic.Update(school);
+            logic.Update(_school);
         }
 
         // DELETE api/<SchoolController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(int _id)
         {
-            logic.Delete(id);
+            logic.Delete(_id);
         }
     }
 }
