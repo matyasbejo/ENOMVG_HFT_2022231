@@ -101,6 +101,21 @@ namespace ENOMVG_HFT_2022231.Logic
             return sch.Students;
         }
 
-        
+        /// <summary>
+        /// Returns the avarage salary in the school
+        /// </summary>
+        /// <param name="_SchoolId"></param>
+        /// <returns></returns>
+        public int SchoolSalaryAVG(int _SchoolId) //Többtáblás
+        {
+            School sch = repository.Read(_SchoolId);
+            var teachers = sch.Teachers;
+            int sum = 0;
+            foreach (Teacher teacher in teachers)
+            {
+                sum += teacher.Salary;
+            }
+            return sum / teachers.Count();
+        }
     }
 }
