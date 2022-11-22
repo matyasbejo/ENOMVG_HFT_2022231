@@ -47,7 +47,7 @@ namespace ENOMVG_HFT_2022231.Logic
         ///<summary>
         ///Visszaadja az iskolaba jaro diakok osszesitett atlagat
         ///</summary>
-        public double GetSchoolAVG(int _schoolId) //Többtáblás
+        public double SchoolGradesAVG(int _schoolId) //Többtáblás
         {
             School school = Read(_schoolId);
             ICollection<Student> _students = school.Students;
@@ -100,5 +100,7 @@ namespace ENOMVG_HFT_2022231.Logic
             School sch = repository.Read(_schoolId);
             return sch.Students;
         }
+
+        
     }
 }
