@@ -43,10 +43,11 @@ namespace ENOMVG_HFT_2022231.Logic
             this.repository.Update(_school);
         }
         //Non CRUD methods
+
         ///<summary>
         ///Visszaadja az iskolaba jaro diakok osszesitett atlagat
         ///</summary>
-        public double GetSchoolAVG(int _schoolId)
+        public double GetSchoolAVG(int _schoolId) //Többtáblás
         {
             School school = Read(_schoolId);
             ICollection<Student> _students = school.Students;
@@ -72,10 +73,32 @@ namespace ENOMVG_HFT_2022231.Logic
         /// </summary>
         /// <param name="_id"></param>
         /// <returns></returns>
-        public int CountAll(int _id)
+        public int CountAll(int _id) //Többtáblás
         {
             School sch = repository.Read(_id);
             return sch.Students.Count() + sch.Teachers.Count();
+        }
+
+        /// <summary>
+        /// Returns the teachers of a school
+        /// </summary>
+        /// <param name="_schoolId"></param>
+        /// <returns></returns>
+        public ICollection<Teacher> TeachersOfSchool(int _schoolId) //Többtáblás
+        {
+            School sch = repository.Read(_schoolId);
+            return sch.Teachers;
+        }
+
+        /// <summary>
+        /// Returns the students of a school
+        /// </summary>
+        /// <param name="_schoolId"></param>
+        /// <returns></returns>
+        public ICollection<Student> StudentsOfSchool(int _schoolId) //Többtáblás
+        {
+            School sch = repository.Read(_schoolId);
+            return sch.Students;
         }
     }
 }
