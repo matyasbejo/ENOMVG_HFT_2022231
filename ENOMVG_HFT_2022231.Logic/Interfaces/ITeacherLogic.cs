@@ -7,11 +7,8 @@ namespace ENOMVG_HFT_2022231.Logic
     {
         void Create(Teacher _item);
         void Delete(int _id);
-        Teacher LeastPaidTeacher();
-        Teacher MostPaidTeacher();
         Teacher Read(int _id);
         IQueryable<Teacher> ReadAll();
-        Teacher ReadName(string _name);
         void Update(Teacher _teacher);
     }
 }
