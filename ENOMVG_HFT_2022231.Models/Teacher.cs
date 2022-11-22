@@ -28,6 +28,7 @@ namespace ENOMVG_HFT_2022231.Models
         public int Id { get; set;}
 
         [Required]
+        [StringLength(80)]
         public string Name { get; set;}
 
         [Required]
