@@ -43,6 +43,7 @@ namespace ENOMVG_HFT_2022231.Logic
         {
             this.repository.Update(_student);
         }
+
         //Non CRUD methods
         /// <summary>
         /// Read metódus név alapján - lassabb
@@ -79,10 +80,10 @@ namespace ENOMVG_HFT_2022231.Logic
         /// Returns the students under the avarage age
         /// </summary>
         /// <returns></returns>
-        public IQueryable<Student> YoungStudents()
+        public IEnumerable<Student> YoungStudents()
         {
             int avgAge = this.AvarageAge();
-            IQueryable<Student> all = this.repository.ReadAll();
+            IEnumerable<Student> all = this.repository.ReadAll();
             return all.Where(t => t.Age <= avgAge);
         }
     }

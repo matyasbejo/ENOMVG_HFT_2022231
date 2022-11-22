@@ -84,7 +84,7 @@ namespace ENOMVG_HFT_2022231.Logic
         /// </summary>
         /// <param name="_schoolId"></param>
         /// <returns></returns>
-        public ICollection<Teacher> TeachersOfSchool(int _schoolId) //Többtáblás
+        public IEnumerable<Teacher> TeachersOfSchool(int _schoolId) //Többtáblás
         {
             School sch = repository.Read(_schoolId);
             return sch.Teachers;
@@ -95,7 +95,7 @@ namespace ENOMVG_HFT_2022231.Logic
         /// </summary>
         /// <param name="_schoolId"></param>
         /// <returns></returns>
-        public ICollection<Student> StudentsOfSchool(int _schoolId) //Többtáblás
+        public IEnumerable<Student> StudentsOfSchool(int _schoolId) //Többtáblás
         {
             School sch = repository.Read(_schoolId);
             return sch.Students;
