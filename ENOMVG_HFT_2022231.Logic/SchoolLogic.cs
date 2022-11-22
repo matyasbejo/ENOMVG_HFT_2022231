@@ -18,7 +18,9 @@ namespace ENOMVG_HFT_2022231.Logic
         }
         public void Create(School _item)
         {
-            this.repository.Create(_item);
+            if (_item.Name == null || _item.Name.Length > 100) throw new Exception("School name is wrong");
+            else if (_item.Type == null) throw new Exception("School type cannot be null");
+            else this.repository.Create(_item);
         }
         public void Delete(int _id)
         {
@@ -29,7 +31,7 @@ namespace ENOMVG_HFT_2022231.Logic
             var school = this.repository.Read(_id);
             if (school == null)
             {
-                throw new ArgumentException("Movie not exists");
+                throw new Exception("Movie doesn't exists");
             }
 
             return school;
@@ -49,15 +51,19 @@ namespace ENOMVG_HFT_2022231.Logic
         ///</summary>
         public double SchoolGradesAVG(int _schoolId) //Többtáblás
         {
-            School school = Read(_schoolId);
-            ICollection<Student> _students = school.Students;
-
-            double sum = 0;
-            foreach (Student st in _students)
+            try
             {
-                sum += st.GradesAVG;
+                School school = Read(_schoolId);
+                ICollection<Student> _students = school.Students;
+
+                double sum = 0;
+                foreach (Student st in _students)
+                {
+                    sum += st.GradesAVG;
+                }
+                return sum / _students.Count();
             }
-            return sum / _students.Count();
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
         /// <summary>
         /// Read metódus név alapján - lassabb

@@ -49,6 +49,7 @@ namespace ENOMVG_HFT_2022231.Logic
         }
 
         //Non CRUD methods
+
         /// <summary>
         /// Read metódus név alapján - lassabb
         /// </summary>

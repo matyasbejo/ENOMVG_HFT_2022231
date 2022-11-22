@@ -19,6 +19,10 @@ namespace ENOMVG_HFT_2022231.Logic
 
         public void Create(Student _item)
         {
+            if (_item.Name == null || _item.Name.Length > 80) throw new Exception("Name is wrong");
+            else if (_item.SchoolId == null) throw new Exception("SchollId cannot be null");
+            else if (_item.Age == null || _item.Age < 6 || _item.Age > 28) throw new Exception("Age must be between 6 and 28");
+            else if (_item.GradesAVG != null && (_item.GradesAVG < 1 || _item.GradesAVG > 5)) throw new Exception("GradesAVG can't be less than 1 and greather than 5");
             this.repository.Create(_item);
         }
         public void Delete(int _id)
