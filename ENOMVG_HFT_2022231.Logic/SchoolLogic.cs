@@ -31,7 +31,7 @@ namespace ENOMVG_HFT_2022231.Logic
             var school = this.repository.Read(_id);
             if (school == null)
             {
-                throw new Exception("Movie doesn't exists");
+                throw new Exception("School doesn't exists");
             }
 
             return school;
@@ -51,19 +51,16 @@ namespace ENOMVG_HFT_2022231.Logic
         ///</summary>
         public double SchoolGradesAVG(int _schoolId) //Többtáblás
         {
-            try
-            {
-                School school = Read(_schoolId);
-                ICollection<Student> _students = school.Students;
+            School school = Read(_schoolId);
 
-                double sum = 0;
-                foreach (Student st in _students)
-                {
-                    sum += st.GradesAVG;
-                }
-                return sum / _students.Count();
+            ICollection<Student> _students = school.Students;
+            if (_students.Count() == 0) throw new Exception("School has zero students");
+            double sum = 0;
+            foreach (Student st in _students)
+            {
+                sum += st.GradesAVG;
             }
-            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            return sum / _students.Count();
         }
         /// <summary>
         /// Read metódus név alapján - lassabb
@@ -116,6 +113,7 @@ namespace ENOMVG_HFT_2022231.Logic
         {
             School sch = repository.Read(_SchoolId);
             var teachers = sch.Teachers;
+            if (teachers.Count() == 0) throw new Exception("School has zero teachers");
             int sum = 0;
             foreach (Teacher teacher in teachers)
             {
