@@ -70,14 +70,7 @@ namespace ENOMVG_HFT_2022231.Test
         [Test]
         public void ReadNotExistingTest()
         {
-            try
-            {
-                var school = logic.Read(33);
-            }
-            catch (Exception ex) { }
-
-            MockSchoolRepository.Verify(r => r.Read(3), Times.Never());
-            Assert.Throws<Exception>(() => logic.Read(33));
+            Assert.Throws<ArgumentException>(() => logic.Read(33));
         }
 
     }
