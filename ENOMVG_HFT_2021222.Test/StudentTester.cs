@@ -57,5 +57,28 @@ namespace ENOMVG_HFT_2022231.Test
 
             Assert.That(YS.Count() == 1);
         }
+
+        [Test]
+        public void StudentCreateTest()
+        {
+            var st = new Student(4, "negyedik d", 22, 2, 3.66);
+            logic.Create(st);
+
+            MockStudentRepository.Verify(l => l.Create(st), Times.Once());
+        }
+
+        [Test]
+        public void ReadStudentTestExisting()
+        {
+            logic.Read(3);
+
+            MockStudentRepository.Verify(l => l.Read(3), Times.Once());
+        }
+
+        [Test]
+        public void ReadNotExistingTest()
+        {
+            Assert.Throws<ArgumentException>(() => logic.Read(123));
+        }
     }
 }
