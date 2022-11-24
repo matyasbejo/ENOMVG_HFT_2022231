@@ -49,7 +49,15 @@ namespace ENOMVG_HFT_2022231.Test
         }
 
         [Test]
+        public void CreateNewSchoolTest()
+        {
 
+            var school = new School("Otodik Varosi Iskola", stype.Secondary);
+
+            logic.Create(school);
+
+            MockSchoolRepository.Verify(r => r.Create(school), Times.Once());
+        }
 
 
     }
