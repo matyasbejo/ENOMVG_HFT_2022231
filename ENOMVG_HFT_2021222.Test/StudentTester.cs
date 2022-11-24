@@ -35,7 +35,7 @@ namespace ENOMVG_HFT_2022231.Test
         }
 
         [Test]
-        public void BestStudentTester()
+        public void BestStudentTest()
         {
             Student st = logic.BestStudent();
 
@@ -43,11 +43,19 @@ namespace ENOMVG_HFT_2022231.Test
         }
 
         [Test]
-        public void AvarageAgeTester()
+        public void AvarageAgeTest()
         {
             int avgA = logic.AvarageAge();
 
             Assert.That(avgA == 12);
+        }
+
+        [Test]
+        public void YoungStudentsTest()
+        {
+            var YS = logic.YoungStudents();
+
+            Assert.That(YS.Count() == 1);
         }
     }
 }
