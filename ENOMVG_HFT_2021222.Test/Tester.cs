@@ -24,43 +24,22 @@ namespace ENOMVG_HFT_2022231.Test
             {
                 new School(1, "Elso Varosi Iskola", stype.Primary),
                 new School(2, "Masodik Varosi Iskola", stype.High),
-                new School(3, "Harmadik Varosi Iskola", stype.High),
-                new School(4, "Negyedik Varosi Iskola", stype.Secondary)
+                new School(3, "Harmadik Varosi Iskola", stype.High)
             }.AsQueryable();
             MockSchoolRepository = new Mock<IRepository<School>>();
             MockSchoolRepository.Setup(m => m.ReadAll()).Returns(input);
+            MockSchoolRepository.Setup(m => m.Read(1)).Returns(input.First(s => s.Id == 1));
+            MockSchoolRepository.Setup(m => m.Read(2)).Returns(input.First(s => s.Id == 2));
+            MockSchoolRepository.Setup(m => m.Read(3)).Returns(input.First(s => s.Id == 3));
             logic = new SchoolLogic(MockSchoolRepository.Object);
         }
 
         [Test]
-        public void CreateNewSchoolTest()
+        public void CountAllTestZeroStudents()
         {
+            int count = logic.CountAll(1);
 
-            var school = new School("Otodik Varosi Iskola", stype.Secondary);
-
-            logic.Create(school);
-
-            MockSchoolRepository.Verify(r => r.Create(school), Times.Once());
-        }
-
-        [Test]
-        public void ReadExistingTest()
-        {
-            logic = new SchoolLogic(MockSchoolRepository.Object);
-            var school = logic.Read(1);
-            MockSchoolRepository.Verify(r => r.Read(1), Times.Once());
-        }
-
-        [Test]
-        public void ReadDoesntExistTest()
-        {
-            try
-            {
-                var school = logic.Read(33);
-            }
-            catch (Exception ex) { }
-
-            MockSchoolRepository.Verify(r => r.Read(3), Times.Never());
+            Assert.That(count == 0);
         }
     }
 }
