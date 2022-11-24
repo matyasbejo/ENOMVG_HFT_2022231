@@ -41,5 +41,13 @@ namespace ENOMVG_HFT_2022231.Test
 
             Assert.True(st.Equals(logic.Read(1)));
         }
+
+        [Test]
+        public void AvarageAgeTester()
+        {
+            int avgA = logic.AvarageAge();
+
+            Assert.That(avgA == 12);
+        }
     }
 }
