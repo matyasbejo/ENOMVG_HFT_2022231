@@ -14,7 +14,7 @@ namespace ENOMVG_HFT_2022231.Test
     [TestFixture]
     internal class StudentTester
     {
-        SchoolLogic logic;
+        StudentLogic logic;
         Mock<IRepository<Student>> MockStudentRepository;
 
         [SetUp]
@@ -31,7 +31,7 @@ namespace ENOMVG_HFT_2022231.Test
             MockStudentRepository.Setup(s => s.Read(1)).Returns(input.First(st => st.Id == 1));
             MockStudentRepository.Setup(s => s.Read(2)).Returns(input.First(s => s.Id == 2));
             MockStudentRepository.Setup(s => s.Read(3)).Returns(input.First(s => s.Id == 3));
-            logic = new SchoolLogic(MockStudentRepository.Object);
+            logic = new StudentLogic(MockStudentRepository.Object);
         }
     }
 }
