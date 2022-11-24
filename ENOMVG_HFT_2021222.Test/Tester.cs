@@ -27,19 +27,30 @@ namespace ENOMVG_HFT_2022231.Test
                 new School(3, "Harmadik Varosi Iskola", stype.High)
             }.AsQueryable();
             MockSchoolRepository = new Mock<IRepository<School>>();
-            MockSchoolRepository.Setup(m => m.ReadAll()).Returns(input);
-            MockSchoolRepository.Setup(m => m.Read(1)).Returns(input.First(s => s.Id == 1));
-            MockSchoolRepository.Setup(m => m.Read(2)).Returns(input.First(s => s.Id == 2));
-            MockSchoolRepository.Setup(m => m.Read(3)).Returns(input.First(s => s.Id == 3));
+            MockSchoolRepository.Setup(s => s.ReadAll()).Returns(input);
+            MockSchoolRepository.Setup(s => s.Read(1)).Returns(input.First(s => s.Id == 1));
+            MockSchoolRepository.Setup(s => s.Read(2)).Returns(input.First(s => s.Id == 2));
+            MockSchoolRepository.Setup(s => s.Read(3)).Returns(input.First(s => s.Id == 3));
             logic = new SchoolLogic(MockSchoolRepository.Object);
         }
 
         [Test]
-        public void CountAllTestZeroStudents()
+        public void ReadNameTestWithExistingSchool()
         {
-            int count = logic.CountAll(1);
+            School sch = logic.ReadName("Masodik Varosi Iskola");
 
-            Assert.That(count == 0);
+            Assert.That(sch.Equals(logic.Read(2)));
         }
+
+        [Test]
+        public void ReadNameTestWithFakeSchool()
+        {
+            Assert.Throws<InvalidOperationException>(() => { logic.ReadName("exterminate"); });
+        }
+
+        [Test]
+
+
+
     }
 }
