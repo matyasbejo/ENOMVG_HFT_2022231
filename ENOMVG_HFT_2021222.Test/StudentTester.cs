@@ -33,5 +33,13 @@ namespace ENOMVG_HFT_2022231.Test
             MockStudentRepository.Setup(s => s.Read(3)).Returns(input.First(s => s.Id == 3));
             logic = new StudentLogic(MockStudentRepository.Object);
         }
+
+        [Test]
+        public void BestStudentTester()
+        {
+            Student st = logic.BestStudent();
+
+            Assert.True(st.Equals(logic.Read(1)));
+        }
     }
 }
