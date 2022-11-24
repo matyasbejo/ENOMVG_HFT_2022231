@@ -59,6 +59,26 @@ namespace ENOMVG_HFT_2022231.Test
             MockSchoolRepository.Verify(r => r.Create(school), Times.Once());
         }
 
+        [Test]
+        public void ReadExistingSchoolTest()
+        {
+            logic = new SchoolLogic(MockSchoolRepository.Object);
+            var school = logic.Read(1);
+            MockSchoolRepository.Verify(r => r.Read(1), Times.Once());
+        }
+
+        [Test]
+        public void ReadNotExistingTest()
+        {
+            try
+            {
+                var school = logic.Read(33);
+            }
+            catch (Exception ex) { }
+
+            MockSchoolRepository.Verify(r => r.Read(3), Times.Never());
+            Assert.Throws<Exception>(() => logic.Read(33));
+        }
 
     }
 }
