@@ -31,7 +31,7 @@ namespace ENOMVG_HFT_2022231.Logic
             var school = this.repository.Read(_id);
             if (school == null)
             {
-                throw new Exception("School doesn't exists");
+                throw new ArgumentException("School doesn't exists");
             }
 
             return school;
