@@ -6,6 +6,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
+/*
+ * Jegyzet: Ebben a projektben rendszeresen hibákat kapunk, ennek oka, hogy a Kovi által feltöltött
+            nikprog.hu-s fájl valamiért bugosan működik. A gyakorilati videók alapján használtam,
+            próbáltam debugolni de nem fut le jól. Szemléltetés képpen: Ha a list metódusnál
+            várunk kb fél percet milőtt továbblépnénk a restservice.cs-ben a 63. sorba akkor kilístázza
+            az elemeket de normális várakozás+debug nélkül nem. Ettől függetlenül a menürendszert, http
+            kéréseket megcsináltam de ez az osztály ilyen szempontból megbízhatatlanul működik :\
+
+            Az érintett metódusok swaggerből vagy postmanből tesztelve működnek.
+ * */
 
 namespace ENOMVG_HFT_2022231.Client
 {
@@ -267,6 +277,8 @@ namespace ENOMVG_HFT_2022231.Client
         static void Main(string[] args)
         {
             rest = new RestService("http://localhost:15398/");
+
+
 
             var schoolSubMenu = new ConsoleMenu(args, level: 1)
                 .Add("List", () => List("School"))

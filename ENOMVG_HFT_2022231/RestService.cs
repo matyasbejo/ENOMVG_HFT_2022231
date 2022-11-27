@@ -59,6 +59,7 @@ namespace ENOMVG_HFT_2022231.Client
         {
             List<T> items = new List<T>();
             HttpResponseMessage response = client.GetAsync(endpoint).GetAwaiter().GetResult();
+            System.Threading.Thread.Sleep(15000);
             if (response.IsSuccessStatusCode)
             {
                 items = response.Content.ReadAsAsync<List<T>>().GetAwaiter().GetResult();
