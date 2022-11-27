@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace ENOMVG_HFT_2022231.Test
 {
     [TestFixture]
-    internal class Tester
+    internal class SchoolTester
     {
         SchoolLogic logic;
         Mock<IRepository<School>> MockSchoolRepository;
