@@ -250,6 +250,7 @@ namespace ENOMVG_HFT_2022231.Client
 
 
 
+
         static void Main(string[] args)
         {
             rest = new RestService("http://localhost:15398/");
@@ -271,6 +272,10 @@ namespace ENOMVG_HFT_2022231.Client
                 .Add("Create", () => Create("Student"))
                 .Add("Delete", () => Delete("Student"))
                 .Add("Update", () => Update("Student"))
+                .Add("Student_ReadName", () => Student_ReadName())
+                .Add("Student_BestStudent", () => Student_BestStudent())
+                .Add("Student_AvarageAge", () => Student_AvarageAge())
+                .Add("Student_YoungStudents", () => Student_YoungStudents())
                 .Add("Exit", ConsoleMenu.Close);
 
             var teacherSubMenu = new ConsoleMenu(args, level: 1)
