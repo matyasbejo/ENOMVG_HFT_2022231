@@ -248,7 +248,20 @@ namespace ENOMVG_HFT_2022231.Client
             }
         }
 
-
+        static void Teacher_Readname()
+        {
+            Console.Write("Tanár neve: ");
+            string name = Console.ReadLine();
+            Console.WriteLine(rest.GetSingle<Teacher>("/Statistics/Teacher_Readname/{name}").Name);
+        }
+        static void Teacher_MostPaidTeacher()
+        {
+            Console.WriteLine(rest.GetSingle<Teacher>("/Statistics/Teacher_MostPaidTeacher").Name);
+        }
+        static void Teacher_LeastPaidTeacher()
+        {
+            Console.WriteLine(rest.GetSingle<Teacher>("/Statistics/Teacher_LeastPaidTeacher").Name);
+        }
 
 
         static void Main(string[] args)
