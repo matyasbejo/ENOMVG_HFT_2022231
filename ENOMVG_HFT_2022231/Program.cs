@@ -296,6 +296,9 @@ namespace ENOMVG_HFT_2022231.Client
                 .Add("Create", () => Create("Teacher"))
                 .Add("Delete", () => Delete("Teacher"))
                 .Add("Update", () => Update("Teacher"))
+                .Add("Readname",() => Teacher_Readname())
+                .Add("MostPaidTeacher", () => Teacher_MostPaidTeacher())
+                .Add("LeastPaidTeacher", () => Teacher_LeastPaidTeacher())
                 .Add("Exit", ConsoleMenu.Close);
 
             var menu = new ConsoleMenu(args, level: 0)
