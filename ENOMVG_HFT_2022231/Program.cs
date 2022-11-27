@@ -25,9 +25,9 @@ namespace ENOMVG_HFT_2022231.Client
             {
                 case "School":
                     Console.WriteLine("Enter School ");
-                        Console.Write("           Name: ");
+                    Console.Write("           Name: ");
                     name = Console.ReadLine();
-                        Console.Write("           Type (Primary/Secondary/High): ");
+                    Console.Write("           Type (Primary/Secondary/High): ");
                     schtype = (stype)Enum.Parse(typeof(stype), Console.ReadLine());
 
                     rest.Post(new School(name, schtype), "school");
@@ -35,13 +35,13 @@ namespace ENOMVG_HFT_2022231.Client
 
                 case "Student":
                     Console.WriteLine("Enter Student ");
-                        Console.Write("           Name: ");
+                    Console.Write("           Name: ");
                     name = Console.ReadLine();
-                        Console.Write("           Age: ");
+                    Console.Write("           Age: ");
                     age = int.Parse(Console.ReadLine());
-                        Console.Write("           GradesAVG: ");
+                    Console.Write("           GradesAVG: ");
                     gradesAVG = double.Parse(Console.ReadLine());
-                        Console.Write("           School Id: ");
+                    Console.Write("           School Id: ");
                     schoolid = int.Parse(Console.ReadLine());
 
                     rest.Post(new Student(name, age, null, schoolid, gradesAVG), "student");
@@ -49,13 +49,13 @@ namespace ENOMVG_HFT_2022231.Client
 
                 case "Teacher":
                     Console.WriteLine("Enter Teacher ");
-                        Console.Write("           Name: ");
+                    Console.Write("           Name: ");
                     name = Console.ReadLine();
-                        Console.Write("           Salary: ");
+                    Console.Write("           Salary: ");
                     salary = int.Parse(Console.ReadLine());
-                        Console.Write("           School Id: ");
+                    Console.Write("           School Id: ");
                     schoolid = int.Parse(Console.ReadLine());
-                        Console.Write("Subject (ESTeacher/History/Physics/German/Geoghraphy/PE/IT/English/Literature): ");
+                    Console.Write("Subject (ESTeacher/History/Physics/German/Geoghraphy/PE/IT/English/Literature): ");
                     tsubj = (subj)Enum.Parse(typeof(subj), Console.ReadLine());
 
 
@@ -124,6 +124,7 @@ namespace ENOMVG_HFT_2022231.Client
             {
                 case "School":
                     Console.WriteLine("Enter School's id to update: ");
+                    Console.Write("Enter School's id to update: ");
                     id = int.Parse(Console.ReadLine());
                     School sch = rest.Get<School>(id, "school");
 
@@ -133,35 +134,37 @@ namespace ENOMVG_HFT_2022231.Client
                     if (res != null && res != "null") sch.Name = res;
                     Console.Write("                    Type (Primary/Secondary/High): ");
                     res = Console.ReadLine();
-                    if(res != null && res != "null") sch.Type = (stype)Enum.Parse(typeof(stype), res);
+                    if (res != null && res != "null") sch.Type = (stype)Enum.Parse(typeof(stype), res);
 
                     rest.Put(sch, "school");
                     break;
 
                 case "Student":
                     Console.WriteLine("Enter Student's id to update: ");
+                    Console.Write("Enter Student's id to update: ");
                     id = int.Parse(Console.ReadLine());
                     Student st = rest.Get<Student>(id, "student");
 
                     Console.WriteLine("Enter Student's  ..... to update. Leave empty if you dont want to update the property");
                     Console.Write("           Name: ");
                     res = Console.ReadLine();
-                    if (res != null && res != "null")  st.Name = res;
+                    if (res != null && res != "null") st.Name = res;
                     Console.Write("           Age: ");
                     res = Console.ReadLine();
-                    if (res != null && res != "null")  st.Age = int.Parse(res);
+                    if (res != null && res != "null") st.Age = int.Parse(res);
                     Console.Write("           GradesAVG: ");
                     res = Console.ReadLine();
-                    if (res != null && res != "null")  st.GradesAVG = double.Parse(res);
+                    if (res != null && res != "null") st.GradesAVG = double.Parse(res);
                     Console.Write("           School Id: ");
                     res = Console.ReadLine();
-                    if (res != null && res != "null")  st.SchoolId = int.Parse(res);
+                    if (res != null && res != "null") st.SchoolId = int.Parse(res);
 
                     rest.Put(st, "student");
                     break;
 
                 case "Teacher":
                     Console.WriteLine("Enter Teacher's id to update: ");
+                    Console.Write("Enter Teacher's id to update: ");
                     id = int.Parse(Console.ReadLine());
                     Teacher tch = rest.Get<Teacher>(id, "teacher");
 
@@ -185,7 +188,6 @@ namespace ENOMVG_HFT_2022231.Client
 
         }
 
-<<<<<<< HEAD
         static void School_GradesAVG()
         {
             Console.Write("Iskola id: ");
@@ -222,21 +224,46 @@ namespace ENOMVG_HFT_2022231.Client
             }
         }
 
+        static void Student_ReadName()
+        {
+            Console.Write("Diák neve: ");
+            string name = Console.ReadLine();
+            Console.WriteLine(rest.GetSingle<Student>("/Statistics/Student_ReadName/{name}"));
+        }
+        static void Student_BestStudent()
+        {
+            Console.WriteLine(rest.GetSingle<Student>("/Statistics/Student_BestStudent"));
+        }
+        static void Student_AvarageAge()
+        {
+            Console.WriteLine(rest.GetSingle<double>("/Statistics/Student_AvarageAge"));
+        }
+        static void Student_YoungStudents()
+        {
+            var res = rest.GetSingle<IEnumerable<Student>>("/Statistics/Student_YoungStudents");
+
+            foreach (var student in res)
+            {
+                Console.WriteLine(student.Name);
+            }
+        }
 
 
-
-=======
->>>>>>> parent of 97890e6 (Added School's non crud methods)
 
         static void Main(string[] args)
         {
             rest = new RestService("http://localhost:15398/");
-            
+
             var schoolSubMenu = new ConsoleMenu(args, level: 1)
                 .Add("List", () => List("School"))
                 .Add("Create", () => Create("School"))
                 .Add("Delete", () => Delete("School"))
                 .Add("Update", () => Update("School"))
+                .Add("Grades_AVG", () => School_GradesAVG())
+                .Add("Salary_AVG", () => School_SalaryAVG())
+                .Add("ReadName", () => School_ReadName())
+                .Add("CountAll", () => School_CountAll())
+                .Add("TeachersOfSchool", () => School_TeachersOfSchool())
                 .Add("Exit", ConsoleMenu.Close);
 
             var studentSubMenu = new ConsoleMenu(args, level: 1)
