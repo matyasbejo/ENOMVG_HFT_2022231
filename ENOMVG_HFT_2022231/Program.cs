@@ -202,7 +202,7 @@ namespace ENOMVG_HFT_2022231.Client
         }
         static void School_ReadName()
         {
-            Console.Write("Diák neve: ");
+            Console.Write("Iskola neve: ");
             string name = Console.ReadLine();
             Console.WriteLine(rest.GetSingle<School>("/Statistics/School_GradesAvg/{name}").Name);
         }
