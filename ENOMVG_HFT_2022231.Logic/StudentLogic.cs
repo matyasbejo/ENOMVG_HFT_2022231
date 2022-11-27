@@ -70,13 +70,13 @@ namespace ENOMVG_HFT_2022231.Logic
         }
 
         /// <summary>
-        /// Returns the avarage age of students
+        /// Returns the avarage age of all students
         /// </summary>
         /// <returns></returns>
-        public int AvarageAge()
+        public double AvarageAge()
         {
             IQueryable<Student> students = this.repository.ReadAll();
-            int sum = students.Sum(t => t.Age) / students.Count();
+            double sum = students.Sum(t => t.Age) / students.Count();
             return sum;
         }
 
