@@ -90,6 +90,30 @@ namespace ENOMVG_HFT_2022231.Client
                     break;
             }
         }
+        static void Delete(string entity)
+        {
+            int id;
+            switch (entity)
+            {
+                case "School":
+                    Console.Write("Enter School's id to delete: ");
+                    id = int.Parse(Console.ReadLine());
+                    rest.Delete(id, "school");
+                    break;
+
+                case "Student":
+                    Console.Write("Enter Student's id to delete: ");
+                    id = int.Parse(Console.ReadLine());
+                    rest.Delete(id, "student");
+                    break;
+
+                case "Teacher":
+                    Console.Write("Enter Teacher's id to delete: ");
+                    id = int.Parse(Console.ReadLine());
+                    rest.Delete(id, "teacher");
+                    break;
+            }
+        }
         
 
 
