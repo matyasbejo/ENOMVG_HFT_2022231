@@ -75,7 +75,7 @@ namespace ENOMVG_HFT_2022231.Endpoint.Controllers
         }
 
         [HttpGet("")]
-        public IEnumerable<Student> School_YoungStudents()
+        public IEnumerable<Student> Student_YoungStudents()
         {
             return StudentLogic.YoungStudents();
         }
