@@ -79,5 +79,24 @@ namespace ENOMVG_HFT_2022231.Endpoint.Controllers
         {
             return StudentLogic.YoungStudents();
         }
+
+        ///////////////////
+        [HttpGet("{name}")]
+        public Teacher Teacher_Readname(string name)
+        {
+            return TeacherLogic.ReadName(name);
+        }
+
+        [HttpGet("")]
+        public Teacher Teacher_MostPaidTeacher()
+        {
+            return TeacherLogic.MostPaidTeacher();
+        }
+
+        [HttpGet("")]
+        public Teacher Teacher_LeastPaidTeacher()
+        {
+            return TeacherLogic.LeastPaidTeacher();
+        }
     }
 }
