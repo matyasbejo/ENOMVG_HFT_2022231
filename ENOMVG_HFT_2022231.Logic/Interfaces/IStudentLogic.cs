@@ -1,4 +1,5 @@
 ﻿using ENOMVG_HFT_2022231.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ENOMVG_HFT_2022231.Logic
@@ -13,6 +14,6 @@ namespace ENOMVG_HFT_2022231.Logic
         IQueryable<Student> ReadAll();
         Student ReadName(string _name);
         void Update(Student _student);
-        IQueryable<Student> YoungStudents();
+        IEnumerable<Student> YoungStudents();
     }
 }
