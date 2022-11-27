@@ -109,7 +109,7 @@ namespace ENOMVG_HFT_2022231.Logic
         /// </summary>
         /// <param name="_SchoolId"></param>
         /// <returns></returns>
-        public double SchoolSalaryAVG(int _SchoolId) //Többtáblás
+        public int SchoolSalaryAVG(int _SchoolId) //Többtáblás
         {
             School sch = repository.Read(_SchoolId);
             var teachers = sch.Teachers;
