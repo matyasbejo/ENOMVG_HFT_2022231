@@ -10,7 +10,7 @@ using System.Reflection;
  * Jegyzet: Ebben a projektben rendszeresen hibákat kapunk, ennek oka, hogy a Kovi által feltöltött
             nikprog.hu-s fájl valamiért bugosan működik. A gyakorilati videók alapján használtam,
             próbáltam debugolni de nem fut le jól. Szemléltetés képpen: Ha a list metódusnál
-            várunk kb fél percet milőtt továbblépnénk a restservice.cs-ben a 63. sorba akkor kilístázza
+            várunk kb fél percet mielőtt továbblépnénk a restservice.cs-ben a 63. sorba akkor kilistázza
             az elemeket de normális várakozás+debug nélkül nem. Ettől függetlenül a menürendszert, http
             kéréseket megcsináltam de ez az osztály ilyen szempontból megbízhatatlanul működik :\
 
