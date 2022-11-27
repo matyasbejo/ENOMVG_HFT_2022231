@@ -1,9 +1,11 @@
-﻿using ENOMVG_HFT_2022231.Models;
+﻿using ConsoleTools;
+using ENOMVG_HFT_2022231.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+
 
 namespace ENOMVG_HFT_2022231.Client
 {
@@ -186,7 +188,36 @@ namespace ENOMVG_HFT_2022231.Client
 
         static void Main(string[] args)
         {
-            rest = new RestService("http://localhost:15398/", "schooling");
+            rest = new RestService("http://localhost:15398/");
+            
+            var schoolSubMenu = new ConsoleMenu(args, level: 1)
+                .Add("List", () => List("School"))
+                .Add("Create", () => Create("School"))
+                .Add("Delete", () => Delete("School"))
+                .Add("Update", () => Update("School"))
+                .Add("Exit", ConsoleMenu.Close);
+
+            var studentSubMenu = new ConsoleMenu(args, level: 1)
+                .Add("List", () => List("Student"))
+                .Add("Create", () => Create("Student"))
+                .Add("Delete", () => Delete("Student"))
+                .Add("Update", () => Update("Student"))
+                .Add("Exit", ConsoleMenu.Close);
+
+            var teacherSubMenu = new ConsoleMenu(args, level: 1)
+                .Add("List", () => List("Teacher"))
+                .Add("Create", () => Create("Teacher"))
+                .Add("Delete", () => Delete("Teacher"))
+                .Add("Update", () => Update("Teacher"))
+                .Add("Exit", ConsoleMenu.Close);
+
+            var menu = new ConsoleMenu(args, level: 0)
+                .Add("Schools", () => schoolSubMenu.Show())
+                .Add("Students", () => studentSubMenu.Show())
+                .Add("Teachers", () => teacherSubMenu.Show())
+                .Add("Exit", ConsoleMenu.Close);
+
+            menu.Show();
         }
     }
 }
