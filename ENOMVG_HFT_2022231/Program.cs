@@ -61,6 +61,35 @@ namespace ENOMVG_HFT_2022231.Client
                     break;
             }
         }
+        static void List(string entity)
+        {
+            switch (entity)
+            {
+                case "School":
+                    List<School> schools = rest.Get<School>("school");
+                    foreach (School school in schools)
+                    {
+                        Console.WriteLine(school.Name);
+                    }
+                    break;
+
+                case "Student":
+                    List<Student> students = rest.Get<Student>("student");
+                    foreach (Student student in students)
+                    {
+                        Console.WriteLine(student.Name);
+                    }
+                    break;
+
+                case "Teacher":
+                    List<Teacher> teachers = rest.Get<Teacher>("teacher");
+                    foreach (Teacher teacher in teachers)
+                    {
+                        Console.WriteLine(teacher.Name);
+                    }
+                    break;
+            }
+        }
         
 
 
