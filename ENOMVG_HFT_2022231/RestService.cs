@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ENOMVG_HFT_2022231.Client
+namespace MovieDbApp.RestClient
 {
     class RestService
     {
