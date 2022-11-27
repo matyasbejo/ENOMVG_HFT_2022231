@@ -114,7 +114,74 @@ namespace ENOMVG_HFT_2022231.Client
                     break;
             }
         }
-        
+        static void Update(string entity)
+        {
+            string res;
+            int id;
+            switch (entity)
+            {
+                case "School":
+                    Console.WriteLine("Enter School's id to update: ");
+                    id = int.Parse(Console.ReadLine());
+                    School sch = rest.Get<School>(id, "school");
+
+                    Console.WriteLine("Enter School's  ..... to update. Leave empty if you dont want to update the property");
+                    Console.Write("                    Name: ");
+                    res = Console.ReadLine();
+                    if (res != null && res != "null") sch.Name = res;
+                    Console.Write("                    Type (Primary/Secondary/High): ");
+                    res = Console.ReadLine();
+                    if(res != null && res != "null") sch.Type = (stype)Enum.Parse(typeof(stype), res);
+
+                    rest.Put(sch, "school");
+                    break;
+
+                case "Student":
+                    Console.WriteLine("Enter Student's id to update: ");
+                    id = int.Parse(Console.ReadLine());
+                    Student st = rest.Get<Student>(id, "student");
+
+                    Console.WriteLine("Enter Student's  ..... to update. Leave empty if you dont want to update the property");
+                    Console.Write("           Name: ");
+                    res = Console.ReadLine();
+                    if (res != null && res != "null")  st.Name = res;
+                    Console.Write("           Age: ");
+                    res = Console.ReadLine();
+                    if (res != null && res != "null")  st.Age = int.Parse(res);
+                    Console.Write("           GradesAVG: ");
+                    res = Console.ReadLine();
+                    if (res != null && res != "null")  st.GradesAVG = double.Parse(res);
+                    Console.Write("           School Id: ");
+                    res = Console.ReadLine();
+                    if (res != null && res != "null")  st.SchoolId = int.Parse(res);
+
+                    rest.Put(st, "student");
+                    break;
+
+                case "Teacher":
+                    Console.WriteLine("Enter Teacher's id to update: ");
+                    id = int.Parse(Console.ReadLine());
+                    Teacher tch = rest.Get<Teacher>(id, "teacher");
+
+                    Console.WriteLine("Enter Teacher's  ..... to update. Leave empty if you dont want to update the property");
+                    Console.Write("           Name: ");
+                    res = Console.ReadLine();
+                    if (res != null && res != "null") tch.Name = res;
+                    Console.Write("           Salary: ");
+                    res = Console.ReadLine();
+                    if (res != null && res != "null") tch.Salary = int.Parse(res);
+                    Console.Write("           School Id: ");
+                    res = Console.ReadLine();
+                    if (res != null && res != "null") tch.SchoolId = int.Parse(res);
+                    Console.Write("Subject (ESTeacher/History/Physics/German/Geoghraphy/PE/IT/English/Literature): ");
+                    res = Console.ReadLine();
+                    if (res != null && res != "null") tch.MainSubject = (subj)Enum.Parse(typeof(subj), res);
+
+                    rest.Put(tch, "teacher");
+                    break;
+            }
+
+        }
 
 
         static void Main(string[] args)
