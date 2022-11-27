@@ -68,7 +68,7 @@ namespace ENOMVG_HFT_2022231.Client
             switch (entity)
             {
                 case "School":
-                    List<School> schools = rest.Get<School>("School");
+                    List<School> schools = rest.Get<School>("school");
                     foreach (School school in schools)
                     {
                         Console.WriteLine(school.Name);
@@ -123,7 +123,7 @@ namespace ENOMVG_HFT_2022231.Client
             switch (entity)
             {
                 case "School":
-                    Console.Write("Enter School's id to update: ");
+                    Console.WriteLine("Enter School's id to update: ");
                     id = int.Parse(Console.ReadLine());
                     School sch = rest.Get<School>(id, "school");
 
@@ -139,7 +139,7 @@ namespace ENOMVG_HFT_2022231.Client
                     break;
 
                 case "Student":
-                    Console.Write("Enter Student's id to update: ");
+                    Console.WriteLine("Enter Student's id to update: ");
                     id = int.Parse(Console.ReadLine());
                     Student st = rest.Get<Student>(id, "student");
 
@@ -161,7 +161,7 @@ namespace ENOMVG_HFT_2022231.Client
                     break;
 
                 case "Teacher":
-                    Console.Write("Enter Teacher's id to update: ");
+                    Console.WriteLine("Enter Teacher's id to update: ");
                     id = int.Parse(Console.ReadLine());
                     Teacher tch = rest.Get<Teacher>(id, "teacher");
 
@@ -185,6 +185,7 @@ namespace ENOMVG_HFT_2022231.Client
 
         }
 
+<<<<<<< HEAD
         static void School_GradesAVG()
         {
             Console.Write("Iskola id: ");
@@ -221,31 +222,11 @@ namespace ENOMVG_HFT_2022231.Client
             }
         }
 
-        static void Student_ReadName()
-        {
-            Console.Write("Diák neve: ");
-            string name = Console.ReadLine();
-            Console.WriteLine(rest.GetSingle<Student>("/Statistics/Student_ReadName/{name}"));
-        }
-        static void Student_BestStudent()
-        {
-            Console.WriteLine(rest.GetSingle<Student>("/Statistics/Student_BestStudent"));
-        }
-        static void Student_AvarageAge()
-        {
-            Console.WriteLine(rest.GetSingle<double>("/Statistics/Student_AvarageAge"));
-        }
-        static void Student_YoungStudents()
-        {
-            var res = rest.GetSingle<IEnumerable<Student>>("/Statistics/Student_YoungStudents");
-
-            foreach (var student in res)
-            {
-                Console.WriteLine(student.Name);
-            }
-        }
 
 
+
+=======
+>>>>>>> parent of 97890e6 (Added School's non crud methods)
 
         static void Main(string[] args)
         {
@@ -256,11 +237,6 @@ namespace ENOMVG_HFT_2022231.Client
                 .Add("Create", () => Create("School"))
                 .Add("Delete", () => Delete("School"))
                 .Add("Update", () => Update("School"))
-                .Add("Grades_AVG", () => School_GradesAVG())
-                .Add("Salary_AVG", () => School_SalaryAVG())
-                .Add("ReadName", () => School_ReadName())
-                .Add("CountAll", () => School_CountAll())
-                .Add("TeachersOfSchool", () => School_TeachersOfSchool())
                 .Add("Exit", ConsoleMenu.Close);
 
             var studentSubMenu = new ConsoleMenu(args, level: 1)
