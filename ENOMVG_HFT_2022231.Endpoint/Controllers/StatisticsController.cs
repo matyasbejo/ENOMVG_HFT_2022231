@@ -1,6 +1,7 @@
 ﻿using ENOMVG_HFT_2022231.Logic;
 using ENOMVG_HFT_2022231.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace ENOMVG_HFT_2022231.Endpoint.Controllers
 {
@@ -15,6 +16,42 @@ namespace ENOMVG_HFT_2022231.Endpoint.Controllers
         public StatisticsController(ISchoolLogic _schoollogic)
         {
             this.SchoolLogic = _schoollogic;
+        }
+
+        [HttpGet("{id}")]
+        public double School_GradesAvg(int id)
+        {
+            return this.SchoolLogic.SchoolGradesAVG(id);
+        }
+
+        [HttpGet("{id}")]
+        public double School_SalaryAVG(int id)
+        {
+            return this.SchoolLogic.SchoolSalaryAVG(id);
+        }
+
+        [HttpGet("{name}")]
+        public School School_ReadName(string name)
+        {
+            return SchoolLogic.ReadName(name);
+        }
+
+        [HttpGet("{id}")]
+        public int School_CountAll(int id)
+        {
+            return SchoolLogic.CountAll(id);
+        }
+
+        [HttpGet("{id}")]
+        public IEnumerable<Teacher> School_TeachersOfSchool(int id)
+        {
+            return SchoolLogic.TeachersOfSchool(id);
+        }
+
+        [HttpGet("{id}")]
+        public IEnumerable<Student> School_StudentsOfSchool(int id)
+        {
+            return SchoolLogic.StudentsOfSchool(id);
         }
     }
 }
