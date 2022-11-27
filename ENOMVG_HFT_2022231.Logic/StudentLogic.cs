@@ -86,7 +86,7 @@ namespace ENOMVG_HFT_2022231.Logic
         /// <returns></returns>
         public IEnumerable<Student> YoungStudents()
         {
-            int avgAge = this.AvarageAge();
+            double avgAge = this.AvarageAge();
             IEnumerable<Student> all = this.repository.ReadAll();
             return all.Where(t => t.Age <= avgAge);
         }

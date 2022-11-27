@@ -6,7 +6,7 @@ namespace ENOMVG_HFT_2022231.Logic
 {
     public interface IStudentLogic
     {
-        int AvarageAge();
+        double AvarageAge();
         Student BestStudent();
         void Create(Student _item);
         void Delete(int _id);
