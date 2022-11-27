@@ -192,31 +192,31 @@ namespace ENOMVG_HFT_2022231.Client
         {
             Console.Write("Iskola id: ");
             int id = int.Parse(Console.ReadLine());
-            Console.WriteLine(rest.GetSingle<double>("/Statistics/School_GradesAvg/{id}"));
+            Console.WriteLine(rest.GetSingle<double>($"/Statistics/School_GradesAvg/{id}"));
         }
         static void School_SalaryAVG()
         {
             Console.Write("Iskola id: ");
             int id = int.Parse(Console.ReadLine());
-            Console.WriteLine(rest.GetSingle<double>("/Statistics/School_SalaryAVG/{id}"));
+            Console.WriteLine(rest.GetSingle<double>($"/Statistics/School_SalaryAVG/{id}"));
         }
         static void School_ReadName()
         {
             Console.Write("Diák neve: ");
             string name = Console.ReadLine();
-            Console.WriteLine(rest.GetSingle<School>("/Statistics/School_GradesAvg/{name}"));
+            Console.WriteLine(rest.GetSingle<School>("/Statistics/School_GradesAvg/{name}").Name);
         }
         static void School_CountAll()
         {
             Console.Write("Iskola id: ");
             int id = int.Parse(Console.ReadLine());
-            Console.WriteLine(rest.GetSingle<int>("/Statistics/School_CountAll/{id}"));
+            Console.WriteLine(rest.GetSingle<int>($"/Statistics/School_CountAll/{id}"));
         }
         static void School_TeachersOfSchool()
         {
             Console.Write("Iskola id: ");
             int id = int.Parse(Console.ReadLine());
-            var res = rest.GetSingle<IEnumerable<Teacher>>("/Statistics/School_TeachersOfSchool/{id}");
+            var res = rest.GetSingle<IEnumerable<Teacher>>($"/Statistics/School_TeachersOfSchool/{id}");
 
             foreach (var teacher in res)
             {
@@ -228,11 +228,11 @@ namespace ENOMVG_HFT_2022231.Client
         {
             Console.Write("Diák neve: ");
             string name = Console.ReadLine();
-            Console.WriteLine(rest.GetSingle<Student>("/Statistics/Student_ReadName/{name}"));
+            Console.WriteLine(rest.GetSingle<Student>($"/Statistics/Student_ReadName/{name}").Name);
         }
         static void Student_BestStudent()
         {
-            Console.WriteLine(rest.GetSingle<Student>("/Statistics/Student_BestStudent"));
+            Console.WriteLine(rest.GetSingle<Student>("/Statistics/Student_BestStudent").Name);
         }
         static void Student_AvarageAge()
         {
@@ -252,7 +252,7 @@ namespace ENOMVG_HFT_2022231.Client
         {
             Console.Write("Tanár neve: ");
             string name = Console.ReadLine();
-            Console.WriteLine(rest.GetSingle<Teacher>("/Statistics/Teacher_Readname/{name}").Name);
+            Console.WriteLine(rest.GetSingle<Teacher>($"/Statistics/Teacher_Readname/{name}").Name);
         }
         static void Teacher_MostPaidTeacher()
         {
