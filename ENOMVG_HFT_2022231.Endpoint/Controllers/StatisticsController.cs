@@ -13,9 +13,11 @@ namespace ENOMVG_HFT_2022231.Endpoint.Controllers
         IStudentLogic StudentLogic;
         ITeacherLogic TeacherLogic;
 
-        public StatisticsController(ISchoolLogic _schoollogic)
+        public StatisticsController(ISchoolLogic _schl, IStudentLogic _stl, ITeacherLogic _tcl)
         {
-            this.SchoolLogic = _schoollogic;
+            this.SchoolLogic = _schl;
+            this.StudentLogic = _stl;
+            this.TeacherLogic = _tcl;
         }
 
         [HttpGet("{id}")]
@@ -52,6 +54,30 @@ namespace ENOMVG_HFT_2022231.Endpoint.Controllers
         public IEnumerable<Student> School_StudentsOfSchool(int id)
         {
             return SchoolLogic.StudentsOfSchool(id);
+        }
+        ///////////////////////////
+        [HttpGet("{name}")]
+        public Student Student_ReadName(string name)
+        {
+            return StudentLogic.ReadName(name);
+        }
+
+        [HttpGet("")]
+        public Student Student_BestStudent()
+        {
+            return StudentLogic.BestStudent();
+        }
+
+        [HttpGet("")]
+        public double Student_AvarageAge()
+        {
+            return StudentLogic.AvarageAge();
+        }
+
+        [HttpGet("")]
+        public IEnumerable<Student> School_YoungStudents()
+        {
+            return StudentLogic.YoungStudents();
         }
     }
 }
