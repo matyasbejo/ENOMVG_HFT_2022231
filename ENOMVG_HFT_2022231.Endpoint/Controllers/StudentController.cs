@@ -25,9 +25,9 @@ namespace ENOMVG_HFT_2022231.Endpoint.Controllers
 
         // GET api/<SchoolController>/5
         [HttpGet("{id}")]
-        public Student Read(int _id)
+        public Student Read(int id)
         {
-            return logic.Read(_id);
+            return logic.Read(id);
         }
 
         // POST api/<SchoolController>
@@ -46,9 +46,9 @@ namespace ENOMVG_HFT_2022231.Endpoint.Controllers
 
         // DELETE api/<SchoolController>/5
         [HttpDelete("{id}")]
-        public void Delete(int _id)
+        public void Delete(int id)
         {
-            logic.Delete(_id);
+            logic.Delete(id);
         }
     }
 }
