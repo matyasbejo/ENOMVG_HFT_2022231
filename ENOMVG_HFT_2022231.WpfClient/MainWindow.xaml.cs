@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ENOMVG_HFT_2022231.WpfClient.SubWindows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace ENOMVG_HFT_2022231.WpfClient
         public MainWindow()
         {
             InitializeComponent();
+            StudentEditorWindow sw = new StudentEditorWindow();
+            sw.ShowDialog();
         }
     }
 }
