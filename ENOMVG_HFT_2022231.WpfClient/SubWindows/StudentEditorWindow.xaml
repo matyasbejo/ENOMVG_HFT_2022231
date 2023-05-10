@@ -15,7 +15,7 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox ItemsSource="{Binding Students}" Grid.Column="0">
+        <ListBox ItemsSource="{Binding Students}" SelectedItem="{Binding SelectedStudent}" Grid.Column="0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Name}"/>

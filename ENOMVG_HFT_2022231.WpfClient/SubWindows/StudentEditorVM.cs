@@ -1,4 +1,5 @@
 ﻿using ENOMVG_HFT_2022231.Models;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
@@ -13,9 +14,21 @@ using System.Windows.Input;
 
 namespace ENOMVG_HFT_2022231.WpfClient.SubWindows
 {
-    class StudentEditorVM
+    class StudentEditorVM : ObservableRecipient
     {
         public RestCollection<Student> Students { get; set; }
+
+        private Student selectedStudent;
+
+        public Student SelectedStudent
+        {
+            get { return selectedStudent; }
+            set { 
+                SetProperty(ref selectedStudent, value);
+                (DeleteStudentCommand as RelayCommand).NotifyCanExecuteChanged();            
+            }
+        }
+
 
         public ICommand CreateStudentCommand { get; set; }
         public ICommand DeleteStudentCommand { get; set; }
@@ -27,11 +40,15 @@ namespace ENOMVG_HFT_2022231.WpfClient.SubWindows
             {
                 Students = new RestCollection<Student>("http://localhost:15398/", "student");
                 CreateStudentCommand = new RelayCommand(() =>
-                    {
-                        Student s = new Student();
-                        s.Name = "sfl";
-                        Students.Add(s);
-                    });
+                {
+                    Students.Add(new Student() { Name="Gerald",Age=11,GradesAVG=3});
+                });
+
+                DeleteStudentCommand = new RelayCommand(() =>
+                {
+                    Students.Delete(selectedStudent.Id);
+                },
+                () => SelectedStudent != null);
             }
         }
         public static bool IsInDesignMode
