@@ -12,15 +12,20 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox ItemsSource="{Binding Students}">
+        <ListBox ItemsSource="{Binding Students}" Grid.Column="0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Name}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <StackPanel Grid.Column="1">
+            <Button Content="Create Student" Command="{Binding CreateStudentCommand}" Margin="10" Padding="10"/>
+            <Button Content="Delete Student" Command="{Binding DeleteStudentCommand}" Margin="10" Padding="10"/>
+            <Button Content="Updae Student" Command="{Binding UpdateStudentCommand}" Margin="10" Padding="10"/>
+        </StackPanel>
     </Grid>
 </Window>
