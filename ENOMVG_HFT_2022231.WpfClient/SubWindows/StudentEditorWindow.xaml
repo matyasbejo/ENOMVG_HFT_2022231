@@ -20,7 +20,7 @@
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
 
-        <ListBox ItemsSource="{Binding Students}" SelectedItem="{Binding SelectedStudent}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
+        <ListBox Background="AliceBlue" ItemsSource="{Binding Students}" SelectedItem="{Binding SelectedStudent}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Name}"/>
@@ -28,7 +28,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Grid Grid.Row="0" MaxHeight="213132" Grid.Column="1" DataContext="{Binding SelectedStudent}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid Background="LightCyan" Grid.Row="0" MaxHeight="213132" Grid.Column="1" DataContext="{Binding SelectedStudent}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -53,7 +53,8 @@
             <TextBox Text="{Binding SchoolId}" Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </Grid>
 
-        <Grid Background="AliceBlue" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch">
+        <Border BorderThickness="0.5" BorderBrush="Black" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch">
+        <Grid Background="LightCyan">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -64,5 +65,6 @@
             <Button Content="Delete Student" Command="{Binding DeleteStudentCommand}" Grid.Row="1" Margin="10"/>
             <Button Content="Update Student" Command="{Binding UpdateStudentCommand}" Grid.Row="2" Margin="10"/>
         </Grid>
+        </Border>
     </Grid>
 </Window>
