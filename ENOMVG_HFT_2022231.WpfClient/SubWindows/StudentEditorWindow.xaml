@@ -9,7 +9,7 @@
     <Window.DataContext>
         <local:StudentEditorVM/>
     </Window.DataContext>
-    <Grid>
+    <Grid x:Name="grid_main">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="2*"/>
@@ -20,7 +20,7 @@
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
 
-        <ListBox Background="AliceBlue" ItemsSource="{Binding Students}" SelectedItem="{Binding SelectedStudent}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
+        <ListBox x:Name="lb_elements" Background="AliceBlue" ItemsSource="{Binding Students}" SelectedItem="{Binding SelectedStudent}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Name}"/>
@@ -28,7 +28,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Grid Background="LightCyan" Grid.Row="0" MaxHeight="213132" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid x:Name="grid_editor" Background="LightCyan" Grid.Row="0" MaxHeight="213132" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -54,7 +54,7 @@
         </Grid>
 
         <Border BorderThickness="0.5" BorderBrush="Black" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch">
-        <Grid Background="LightCyan">
+        <Grid x:Name="grid_buttons" Background="LightCyan">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
