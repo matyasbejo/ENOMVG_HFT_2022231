@@ -17,6 +17,7 @@ namespace ENOMVG_HFT_2022231.WpfClient.SubWindows
     class StudentEditorVM : ObservableRecipient
     {
         public RestCollection<Student> Students { get; set; }
+        public RestCollection<School> Schools { get; set; }
 
         private Student selectedStudent;
 
@@ -24,8 +25,20 @@ namespace ENOMVG_HFT_2022231.WpfClient.SubWindows
         {
             get { return selectedStudent; }
             set { 
-                SetProperty(ref selectedStudent, value);
-                (DeleteStudentCommand as RelayCommand).NotifyCanExecuteChanged();            
+                if(value != null)
+                {
+                    selectedStudent = new Student()
+                    {
+                        Age = value.Age,
+                        Name = value.Name,
+                        GradesAVG = value.GradesAVG,
+                        SchoolId = value.SchoolId,
+                        Id = value.Id
+                    };
+                    OnPropertyChanged();
+                    (DeleteStudentCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (UpdateStudentCommand as RelayCommand).NotifyCanExecuteChanged();
+                }               
             }
         }
 
@@ -39,6 +52,8 @@ namespace ENOMVG_HFT_2022231.WpfClient.SubWindows
             if (!IsInDesignMode)
             {
                 Students = new RestCollection<Student>("http://localhost:15398/", "student");
+                Schools = new RestCollection<School>("http://localhost:15398/", "school");
+
                 CreateStudentCommand = new RelayCommand(() =>
                 {
                     Students.Add(new Student() { Name="Gerald",Age=11,GradesAVG=3});
@@ -49,6 +64,18 @@ namespace ENOMVG_HFT_2022231.WpfClient.SubWindows
                     Students.Delete(selectedStudent.Id);
                 },
                 () => SelectedStudent != null);
+
+                UpdateStudentCommand = new RelayCommand(() =>
+                {
+                    try
+                    {
+                        Students.Update(SelectedStudent);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                    }
+                },
+                () => selectedStudent != null);
             }
         }
         public static bool IsInDesignMode
