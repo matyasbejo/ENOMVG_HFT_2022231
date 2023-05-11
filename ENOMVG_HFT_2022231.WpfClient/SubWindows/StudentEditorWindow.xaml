@@ -15,17 +15,48 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox ItemsSource="{Binding Students}" SelectedItem="{Binding SelectedStudent}" Grid.Column="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <ListBox ItemsSource="{Binding Students}" SelectedItem="{Binding SelectedStudent}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Name}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <StackPanel Grid.Column="1">
+
+        <Grid Grid.Row="0" MaxHeight="213132" Grid.Column="1" DataContext="{Binding SelectedStudent}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Name: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding Name}" Grid.Column="1" Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+            <Label Content="Age: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding Age}" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+            <Label Content="Grades AVG: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding GradesAVG}" Grid.Column="2" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+            <Label Content="School: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding SchoolId}" Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Grid>
+
+        <StackPanel VerticalAlignment="Bottom" Background="AliceBlue" Grid.Row="1" Grid.Column="1">
             <Button Content="Create Student" Command="{Binding CreateStudentCommand}" Margin="10" Padding="10"/>
             <Button Content="Delete Student" Command="{Binding DeleteStudentCommand}" Margin="10" Padding="10"/>
-            <Button Content="Updae Student" Command="{Binding UpdateStudentCommand}" Margin="10" Padding="10"/>
+            <Button Content="Update Student" Command="{Binding UpdateStudentCommand}" Margin="10" Padding="10"/>
         </StackPanel>
     </Grid>
 </Window>
