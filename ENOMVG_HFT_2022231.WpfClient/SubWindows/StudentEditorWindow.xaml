@@ -53,10 +53,16 @@
             <TextBox Text="{Binding SchoolId}" Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </Grid>
 
-        <StackPanel VerticalAlignment="Bottom" Background="AliceBlue" Grid.Row="1" Grid.Column="1">
-            <Button Content="Create Student" Command="{Binding CreateStudentCommand}" Margin="10" Padding="10"/>
-            <Button Content="Delete Student" Command="{Binding DeleteStudentCommand}" Margin="10" Padding="10"/>
-            <Button Content="Update Student" Command="{Binding UpdateStudentCommand}" Margin="10" Padding="10"/>
-        </StackPanel>
+        <Grid Background="AliceBlue" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+                
+            <Button Content="Create Student" Command="{Binding CreateStudentCommand}" Grid.Row="0" Margin="10"/>
+            <Button Content="Delete Student" Command="{Binding DeleteStudentCommand}" Grid.Row="1" Margin="10"/>
+            <Button Content="Update Student" Command="{Binding UpdateStudentCommand}" Grid.Row="2" Margin="10"/>
+        </Grid>
     </Grid>
 </Window>
