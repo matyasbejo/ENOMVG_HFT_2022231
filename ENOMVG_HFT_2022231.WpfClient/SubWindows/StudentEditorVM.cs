@@ -35,7 +35,9 @@ namespace ENOMVG_HFT_2022231.WpfClient.SubWindows
                         SchoolId = value.SchoolId,
                         Id = value.Id
                     };
+
                     OnPropertyChanged();
+                    (CreateStudentCommand as RelayCommand).NotifyCanExecuteChanged();
                     (DeleteStudentCommand as RelayCommand).NotifyCanExecuteChanged();
                     (UpdateStudentCommand as RelayCommand).NotifyCanExecuteChanged();
                 }               
@@ -54,31 +56,33 @@ namespace ENOMVG_HFT_2022231.WpfClient.SubWindows
                 Students = new RestCollection<Student>("http://localhost:15398/", "student");
                 Schools = new RestCollection<School>("http://localhost:15398/", "school");
 
-                CreateStudentCommand = new RelayCommand(() =>
+                try
                 {
-                    int maxId = Students.Max(s => s.Id);
-                    SelectedStudent.Id = maxId + 1;
-                    Students.Add(SelectedStudent);
-                }) ;
+                    CreateStudentCommand = new RelayCommand(() =>
+                    {
+                        int maxId = Students.Max(s => s.Id);
+                        SelectedStudent.Id = maxId + 1;
+                        Students.Add(SelectedStudent);
+                    });
 
-                DeleteStudentCommand = new RelayCommand(() =>
-                {
-                    Students.Delete(selectedStudent.Id);
-                },
-                () => SelectedStudent != null);
+                    DeleteStudentCommand = new RelayCommand(() =>
+                    {
+                        Students.Delete(selectedStudent.Id);
+                        SelectedStudent = new Student();
+                    },
+                    () => SelectedStudent.Name != null && SelectedStudent.Name != "");
 
-                UpdateStudentCommand = new RelayCommand(() =>
-                {
-                    try
+
+                    UpdateStudentCommand = new RelayCommand(() =>
                     {
                         Students.Update(SelectedStudent);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                },
-                () => selectedStudent != null);
+                    },
+                    () => SelectedStudent.Name != null && SelectedStudent.Name != "");
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             SelectedStudent = new Student();
         }
