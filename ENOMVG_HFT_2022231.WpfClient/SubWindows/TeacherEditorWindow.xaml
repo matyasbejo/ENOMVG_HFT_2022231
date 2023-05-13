@@ -61,9 +61,9 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <Button Content="Create Student" Command="{Binding CreateTeacherCommand}" Grid.Row="0" Margin="10"/>
-                <Button Content="Delete Student" Command="{Binding DeleteTeacherCommand}" Grid.Row="1" Margin="10"/>
-                <Button Content="Update Student" Command="{Binding UpdateTeacherCommand}" Grid.Row="2" Margin="10"/>
+                <Button Content="Create Teacher" Command="{Binding CreateTeacherCommand}" Grid.Row="0" Margin="10"/>
+                <Button Content="Delete Teacher" Command="{Binding DeleteTeacherCommand}" Grid.Row="1" Margin="10"/>
+                <Button Content="Update Teacher" Command="{Binding UpdateTeacherCommand}" Grid.Row="2" Margin="10"/>
             </Grid>
         </Border>
     </Grid>
