@@ -71,11 +71,12 @@ namespace ENOMVG_HFT_2022231.WpfClient.SubWindows
                     {
                         Students.Update(SelectedStudent);
                     }
-                    catch (ArgumentException ex)
+                    catch (Exception ex)
                     {
+                        MessageBox.Show(ex.Message);
                     }
                 },
-                () => selectedStudent != null);
+                () => selectedStudent != null && selectedStudent.Age >= 6 && selectedStudent.Age <= 28 && selectedStudent.GradesAVG >= 1.00 && selectedStudent.GradesAVG <= 5.00);
             }
         }
         public static bool IsInDesignMode
