@@ -56,8 +56,10 @@ namespace ENOMVG_HFT_2022231.WpfClient.SubWindows
 
                 CreateStudentCommand = new RelayCommand(() =>
                 {
-                    Students.Add(new Student() { Name="Gerald",Age=11,GradesAVG=3});
-                });
+                    int maxId = Students.Max(s => s.Id);
+                    SelectedStudent.Id = maxId + 1;
+                    Students.Add(SelectedStudent);
+                }) ;
 
                 DeleteStudentCommand = new RelayCommand(() =>
                 {
@@ -78,6 +80,7 @@ namespace ENOMVG_HFT_2022231.WpfClient.SubWindows
                 },
                 () => selectedStudent != null && selectedStudent.Age >= 6 && selectedStudent.Age <= 28 && selectedStudent.GradesAVG >= 1.00 && selectedStudent.GradesAVG <= 5.00);
             }
+            SelectedStudent = new Student();
         }
         public static bool IsInDesignMode
         {
