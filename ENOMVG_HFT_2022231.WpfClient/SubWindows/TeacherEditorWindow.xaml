@@ -5,8 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ENOMVG_HFT_2022231.WpfClient.SubWindows"
         mc:Ignorable="d"
-        Title="TeacherEditorWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Teacher Editor" Height="450" Width="800">
+    <Window.DataContext>
+        <local:TeacherEditorVM/>
+    </Window.DataContext>
+    <Grid x:Name="grid_main">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <ListBox x:Name="lb_elements" Background="AliceBlue" ItemsSource="{Binding Teachers}" SelectedItem="{Binding SelectedTeacher}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Name}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Grid x:Name="grid_editor" Background="LightCyan" Grid.Row="0" MaxHeight="213132" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Name: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding SelectedTeacher.Name, UpdateSourceTrigger=PropertyChanged}"  Grid.Column="1" Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+            <Label Content="Main Subject: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding SelectedTeacher.MainSubject, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+            <Label Content="Salary: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding SelectedTeacher.Salary, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+            <Label Content="School: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding SelectedTeacher.SchoolId, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Grid>
+
+        <Border BorderThickness="0.5" BorderBrush="Black" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch">
+            <Grid x:Name="grid_buttons" Background="LightCyan">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Button Content="Create Student" Command="{Binding CreateTeacherCommand}" Grid.Row="0" Margin="10"/>
+                <Button Content="Delete Student" Command="{Binding DeleteTeacherCommand}" Grid.Row="1" Margin="10"/>
+                <Button Content="Update Student" Command="{Binding UpdateTeacherCommand}" Grid.Row="2" Margin="10"/>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

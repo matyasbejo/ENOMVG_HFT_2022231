@@ -24,7 +24,7 @@ namespace ENOMVG_HFT_2022231.WpfClient
         public MainWindow()
         {
             InitializeComponent();
-            StudentEditorWindow sw = new StudentEditorWindow();
+            TeacherEditorWindow sw = new TeacherEditorWindow();
             sw.ShowDialog();
         }
     }
