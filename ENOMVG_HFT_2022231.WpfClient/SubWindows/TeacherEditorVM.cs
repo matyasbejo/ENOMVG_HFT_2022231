@@ -33,7 +33,8 @@ namespace ENOMVG_HFT_2022231.WpfClient.SubWindows
                         Name = value.Name,
                         SchoolId = value.SchoolId,
                         MainSubject = value.MainSubject,
-                        Salary = value.Salary
+                        Salary = value.Salary,
+                        Id = value.Id
                     };
 
                     OnPropertyChanged();
