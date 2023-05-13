@@ -23,7 +23,7 @@ namespace ENOMVG_HFT_2022231.Repository
             var old = Read(_item.Id);
             foreach (var property in old.GetType().GetProperties())
             {
-                property.SetValue(old, property.GetValue(_item));
+                if (property.PropertyType.Name != "School" && property.Name != "LazyLoader") property.SetValue(old, property.GetValue(_item));
             }
             context.SaveChanges();
         }
