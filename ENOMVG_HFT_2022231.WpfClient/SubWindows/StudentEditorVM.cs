@@ -78,7 +78,7 @@ namespace ENOMVG_HFT_2022231.WpfClient.SubWindows
                         MessageBox.Show(ex.Message);
                     }
                 },
-                () => selectedStudent != null && selectedStudent.Age >= 6 && selectedStudent.Age <= 28 && selectedStudent.GradesAVG >= 1.00 && selectedStudent.GradesAVG <= 5.00);
+                () => selectedStudent != null);
             }
             SelectedStudent = new Student();
         }
