@@ -41,16 +41,16 @@
             </Grid.RowDefinitions>
 
             <Label Content="Name: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            <TextBox Text="{Binding SelectedStudent.Name}" Grid.Column="1" Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding SelectedStudent.Name, UpdateSourceTrigger=PropertyChanged}"  Grid.Column="1" Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
             <Label Content="Age: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            <TextBox Text="{Binding SelectedStudent.Age}" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding SelectedStudent.Age, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
             <Label Content="Grades AVG: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            <TextBox Text="{Binding SelectedStudent.GradesAVG}" Grid.Column="2" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding SelectedStudent.GradesAVG, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
             <Label Content="School: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            <TextBox Text="{Binding SelectedStudent.SchoolId}" Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding SelectedStudent.SchoolId, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </Grid>
 
         <Border BorderThickness="0.5" BorderBrush="Black" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch">
