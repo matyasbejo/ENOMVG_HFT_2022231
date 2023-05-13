@@ -4,11 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ENOMVG_HFT_2022231.WpfClient.SubWindows"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" 
         mc:Ignorable="d"
-        Title="Teacher Editor" Height="450" Width="800">
+        Title="Teacher Editor" Height="450" Width="800"
+        xmlns:local2="clr-namespace:ENOMVG_HFT_2022231.Models;assembly=ENOMVG_HFT_2022231.Models">
     <Window.DataContext>
         <local:TeacherEditorVM/>
     </Window.DataContext>
+
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum" MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local2:subj"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+
     <Grid x:Name="grid_main">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -43,14 +55,20 @@
             <Label Content="Name: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <TextBox Text="{Binding SelectedTeacher.Name, UpdateSourceTrigger=PropertyChanged}"  Grid.Column="1" Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
-            <Label Content="Main Subject: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            <TextBox Text="{Binding SelectedTeacher.MainSubject, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Content="Main Subject: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <ComboBox ItemsSource="{Binding Source={StaticResource dataFromEnum}}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                      SelectedItem="{Binding Path=SelectedTeacher.MainSubject}" Grid.Column="1" Grid.Row="3"/>
+
+            <Label Content="School: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding SelectedTeacher.SchoolId, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
             <Label Content="Salary: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <TextBox Text="{Binding SelectedTeacher.Salary, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
-            <Label Content="School: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            <TextBox Text="{Binding SelectedTeacher.SchoolId, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Content="Main Subject: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <ComboBox ItemsSource="{Binding Source={StaticResource dataFromEnum}}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                      SelectedItem="{Binding Path=SelectedTeacher.MainSubject}" Grid.Column="1" Grid.Row="3"/>
+            
         </Grid>
 
         <Border BorderThickness="0.5" BorderBrush="Black" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch">
