@@ -41,9 +41,24 @@ namespace ENOMVG_HFT_2022231.WpfClient.SubWindows
                     (CreateTeacherCommand as RelayCommand).NotifyCanExecuteChanged();
                     (DeleteTeacherCommand as RelayCommand).NotifyCanExecuteChanged();
                     (UpdateTeacherCommand as RelayCommand).NotifyCanExecuteChanged();
-                }
-            }
+                }            }
         }
+
+        public School helper {
+            get {
+                return null; //kitalálni
+                //try
+                //{
+                //    Schools.GetEnumerator().Reset();
+                //    while (Schools.GetEnumerator().Current.Id != selectedTeacher.SchoolId)
+                //        Schools.GetEnumerator().MoveNext();
+                //    School s = Schools.GetEnumerator().Current;
+                //    Schools.GetEnumerator().Reset();
+                //    return s;
+                //}
+                //catch(Exception e) { return null; }
+                } 
+            set { selectedTeacher.SchoolId = value.Id; } }
 
 
         public ICommand CreateTeacherCommand { get; set; }

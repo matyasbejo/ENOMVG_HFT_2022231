@@ -59,11 +59,11 @@
             <ComboBox ItemsSource="{Binding Source={StaticResource dataFromEnum}}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                       SelectedItem="{Binding Path=SelectedTeacher.MainSubject}" Grid.Column="1" Grid.Row="3"/>
 
-            <Label Content="School: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            <TextBox Text="{Binding SelectedTeacher.SchoolId, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Content="School: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <ComboBox ItemsSource="{Binding Schools}" SelectedItem="{Binding helper}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="1"/>
 
-            <Label Content="Salary: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            <TextBox Text="{Binding SelectedTeacher.Salary, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Content="Salary: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding SelectedTeacher.Salary, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
             <Label Content="Main Subject: " BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <ComboBox ItemsSource="{Binding Source={StaticResource dataFromEnum}}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"

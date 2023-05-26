@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <Button Content="Student Editor" Grid.Column="0" Margin="10" Click="Student_Button_Click"/>
+        <Button Content="Teacher Editor" Grid.Column="1" Margin="10" Click="Teacher_Button_Click"/>
     </Grid>
 </Window>
