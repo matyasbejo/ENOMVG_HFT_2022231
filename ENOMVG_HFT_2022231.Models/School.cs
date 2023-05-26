@@ -63,5 +63,10 @@ namespace ENOMVG_HFT_2022231.Models
             Students = new HashSet<Student>();
             Teachers = new HashSet<Teacher>();
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
