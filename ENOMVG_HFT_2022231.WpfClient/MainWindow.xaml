@@ -6,13 +6,23 @@
         xmlns:local="clr-namespace:ENOMVG_HFT_2022231.WpfClient"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainWindowVM/>
+    </Window.DataContext>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
         
-        <Button Content="Student Editor" Grid.Column="0" Margin="10" Click="Student_Button_Click"/>
-        <Button Content="Teacher Editor" Grid.Column="1" Margin="10" Click="Teacher_Button_Click"/>
+        <Button Content="Student Editor" Grid.Column="0" Margin="10" Command="{Binding stewCommand}"/>
+        <Button Content="Teacher Editor" Grid.Column="1" Margin="10" Command="{Binding tchwCommand}"/>
+        <Button Content="School Editor" Grid.Column="2" Margin="10" Command="{Binding schwCommand}"/>
     </Grid>
 </Window>

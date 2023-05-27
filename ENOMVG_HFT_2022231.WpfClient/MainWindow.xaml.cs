@@ -24,20 +24,6 @@ namespace ENOMVG_HFT_2022231.WpfClient
         public MainWindow()
         {
             InitializeComponent();
-            TeacherEditorWindow sw = new TeacherEditorWindow();
-            sw.ShowDialog();
-        }
-
-        private void Student_Button_Click(object sender, RoutedEventArgs e)
-        {
-            StudentEditorWindow sw = new StudentEditorWindow();
-            sw.ShowDialog();
-        }
-
-        private void Teacher_Button_Click(object sender, RoutedEventArgs e)
-        {
-            TeacherEditorWindow sw = new TeacherEditorWindow();
-            sw.ShowDialog();
         }
     }
 }
