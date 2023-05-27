@@ -20,7 +20,6 @@ namespace ENOMVG_HFT_2022231.WpfClient.SubWindows
         public RestCollection<School> Schools { get; set; }
 
         private Student selectedStudent;
-
         public Student SelectedStudent
         {
             get { return selectedStudent; }
@@ -42,6 +41,24 @@ namespace ENOMVG_HFT_2022231.WpfClient.SubWindows
                     (UpdateStudentCommand as RelayCommand).NotifyCanExecuteChanged();
                 }               
             }
+        }
+        public School helper
+        {
+            get
+            {
+                return null; //kitalálni
+                             //try
+                             //{
+                             //    Schools.GetEnumerator().Reset();
+                             //    while (Schools.GetEnumerator().Current.Id != selectedTeacher.SchoolId)
+                             //        Schools.GetEnumerator().MoveNext();
+                             //    School s = Schools.GetEnumerator().Current;
+                             //    Schools.GetEnumerator().Reset();
+                             //    return s;
+                             //}
+                             //catch(Exception e) { return null; }
+            }
+            set { selectedStudent.SchoolId = value.Id; }
         }
 
 
