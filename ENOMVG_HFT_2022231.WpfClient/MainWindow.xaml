@@ -10,7 +10,7 @@
         <local:MainWindowVM/>
     </Window.DataContext>
 
-    <Grid>
+    <Grid Background="LightGoldenrodYellow">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -20,9 +20,34 @@
             <RowDefinition/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
-        
-        <Button Content="Student Editor" Grid.Column="0" Margin="10" Command="{Binding stewCommand}"/>
-        <Button Content="Teacher Editor" Grid.Column="1" Margin="10" Command="{Binding tchwCommand}"/>
-        <Button Content="School Editor" Grid.Column="2" Margin="10" Command="{Binding schwCommand}"/>
+
+        <Button Content="Student Editor" Grid.Column="0" Margin="9" Command="{Binding stewCommand}" Background="Khaki"/>
+        <Button Content="Teacher Editor" Grid.Column="1" Margin="9" Command="{Binding tchwCommand}" Background="Khaki"/>
+        <Button Content="School Editor" Grid.Column="2"  Margin="9" Command="{Binding schwCommand}" Background="Khaki"/>
+        <!--<Line Grid.ColumnSpan="3" Grid.Row="0" Grid.Column="0" Width="10" VerticalAlignment="Bottom"/>-->
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Background="LightBlue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.025*"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.ColumnSpan="3" Background="DarkGray"/>
+
+            <Button Content="Most paid teacher" Command="{Binding mostPaidTchCommand}" Grid.Column="0" Grid.Row="1" Padding="10" Margin="17" Background="Aquamarine"/>
+            <Button Content="Least paid teacher" Command="{Binding leastPaidTchCommand}" Grid.Column="1" Grid.Row="1" Padding="10" Margin="17" Background="Aquamarine"/>
+            <Button Content="Student with the best grade" Command="{Binding beastStudentCommand}" Grid.Column="2" Grid.Row="1" Padding="10" Margin="17" Background="AquaMarine"/>
+            <Button Content="Most paid teacher" Grid.Column="0" Grid.Row="2" Padding="10" Margin="17" Background="AquaMarine"/>
+            <Button Content="Most paid teacher" Grid.Column="1" Grid.Row="2" Padding="10" Margin="17" Background="AquaMarine"/>
+            <Button Content="Most paid teacher" Grid.Column="2" Grid.Row="2" Padding="10" Margin="17" Background="AquaMarine"/>
+            <Button Content="Most paid teacher" Grid.Column="0" Grid.Row="3" Padding="10" Margin="17" Background="AquaMarine"/>
+            <Button Content="Most paid teacher" Grid.Column="1" Grid.Row="3" Padding="10" Margin="17" Background="AquaMarine"/>
+            <Button Content="Most paid teacher" Grid.Column="2" Grid.Row="3" Padding="10" Margin="17" Background="AquaMarine"/>
+        </Grid>
     </Grid>
 </Window>
