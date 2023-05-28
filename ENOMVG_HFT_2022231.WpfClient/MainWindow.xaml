@@ -44,6 +44,8 @@
             <Button Content="Student with the best grade" Command="{Binding bestStudentCommand}" Grid.Column="2" Grid.Row="1" Padding="10" Margin="17" Background="AquaMarine"/>
             <Button Content="Avarage age across schools" Command="{Binding avgAgeCommand}" Grid.Column="0" Grid.Row="2" Padding="10" Margin="17" Background="AquaMarine"/>
             <Button Content="Young Students" Command="{Binding youngStudentsCommand}" Grid.Column="2" Grid.Row="2" Padding="10" Margin="17" Background="AquaMarine"/>
-       </Grid>
+
+            <ComboBox ItemsSource="{Binding Schools}" SelectedItem="{Binding SelectedSchool}" Grid.Row="2" Grid.Column="1" Margin="17" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        </Grid>
     </Grid>
 </Window>

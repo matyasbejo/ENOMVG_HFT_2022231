@@ -25,13 +25,39 @@ namespace ENOMVG_HFT_2022231.WpfClient
         public ICommand bestStudentCommand { get; set; }
         public ICommand avgAgeCommand { get; set; }
         public ICommand youngStudentsCommand { get; set; }
+        public ICommand bestStudentsCommand { get; set; }
 
+        public RestCollection<School> Schools { get; set; }
+        private School selectedSchool;
+        public School SelectedSchool
+        {
+            get { return selectedSchool; }
+            set
+            {
+                if (value != null)
+                {
+                    selectedSchool = new School()
+                    {
+                        Name = value.Name,
+                        Type = value.Type,
+                        Age = value.Age,
+                        Students = value.Students,
+                        Teachers = value.Teachers,
+                        Id = value.Id
+                    };
+
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         public MainWindowVM()
         {
             if (!IsInDesignMode)
             {
                 rest = new RestService("http://localhost:15398/");
+                Schools = new RestCollection<School>("http://localhost:15398/", "school");
+
                 stewCommand = new RelayCommand(() =>
                 {
                     StudentEditorWindow sw = new StudentEditorWindow();
