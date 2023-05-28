@@ -47,9 +47,15 @@ namespace ENOMVG_HFT_2022231.WpfClient
                     };
 
                     OnPropertyChanged();
+                    (teachersOfSchCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (avgGradesOfSchCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (avgSalaryOfSchCommand as RelayCommand).NotifyCanExecuteChanged();
                 }
             }
         }
+        public ICommand teachersOfSchCommand { get; set; }
+        public ICommand avgGradesOfSchCommand { get; set; }
+        public ICommand avgSalaryOfSchCommand { get; set; }
 
         public MainWindowVM()
         {
@@ -102,6 +108,22 @@ namespace ENOMVG_HFT_2022231.WpfClient
                     ListWindow lw = new ListWindow(rest.GetSingle<IEnumerable<Student>>("/Statistics/Student_YoungStudents"));
                     lw.ShowDialog();
                 });
+
+                teachersOfSchCommand = new RelayCommand(() =>
+                {
+                    ListWindow lw = new ListWindow(rest.GetSingle<IEnumerable<Teacher>>($"/Statistics/School_TeachersOfSchool/{SelectedSchool.Id}"));
+                    lw.ShowDialog();
+                }, () => SelectedSchool != null);
+
+                avgGradesOfSchCommand = new RelayCommand(() =>
+                {
+                    MessageBox.Show(rest.GetSingle<double>($"/Statistics/School_GradesAvg/{SelectedSchool.Id}").ToString());
+                }, () => SelectedSchool != null);
+
+                avgSalaryOfSchCommand = new RelayCommand(() =>
+                {
+                    MessageBox.Show(rest.GetSingle<double>($"/Statistics/School_SalaryAVG/{SelectedSchool.Id}").ToString());
+                }, () => SelectedSchool != null);
             }
         }
         public static bool IsInDesignMode
