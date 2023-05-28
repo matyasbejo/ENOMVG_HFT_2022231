@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ENOMVG_HFT_2022231.Models
 {
-    public class Student
+    public class Student : IModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

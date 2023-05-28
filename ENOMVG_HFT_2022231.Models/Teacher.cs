@@ -21,7 +21,7 @@ namespace ENOMVG_HFT_2022231.Models
         English,
         Literature
     }
-    public class Teacher
+    public class Teacher : IModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

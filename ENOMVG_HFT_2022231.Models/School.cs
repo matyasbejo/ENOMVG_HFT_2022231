@@ -15,7 +15,7 @@ namespace ENOMVG_HFT_2022231.Models
         High, //gimi
 
     }
-    public class School
+    public class School : IModel
     {
         [Key]
         [Required]
@@ -24,7 +24,7 @@ namespace ENOMVG_HFT_2022231.Models
 
         [Required]
         [StringLength(100)]
-        public string Name { get; set;}
+        public string Name { get; set; }
 
         public int Age { get; set; }
 
