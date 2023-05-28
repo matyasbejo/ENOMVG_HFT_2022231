@@ -41,13 +41,9 @@
 
             <Button Content="Most paid teacher" Command="{Binding mostPaidTchCommand}" Grid.Column="0" Grid.Row="1" Padding="10" Margin="17" Background="Aquamarine"/>
             <Button Content="Least paid teacher" Command="{Binding leastPaidTchCommand}" Grid.Column="1" Grid.Row="1" Padding="10" Margin="17" Background="Aquamarine"/>
-            <Button Content="Student with the best grade" Command="{Binding beastStudentCommand}" Grid.Column="2" Grid.Row="1" Padding="10" Margin="17" Background="AquaMarine"/>
-            <Button Content="Most paid teacher" Grid.Column="0" Grid.Row="2" Padding="10" Margin="17" Background="AquaMarine"/>
-            <Button Content="Most paid teacher" Grid.Column="1" Grid.Row="2" Padding="10" Margin="17" Background="AquaMarine"/>
-            <Button Content="Most paid teacher" Grid.Column="2" Grid.Row="2" Padding="10" Margin="17" Background="AquaMarine"/>
-            <Button Content="Most paid teacher" Grid.Column="0" Grid.Row="3" Padding="10" Margin="17" Background="AquaMarine"/>
-            <Button Content="Most paid teacher" Grid.Column="1" Grid.Row="3" Padding="10" Margin="17" Background="AquaMarine"/>
-            <Button Content="Most paid teacher" Grid.Column="2" Grid.Row="3" Padding="10" Margin="17" Background="AquaMarine"/>
-        </Grid>
+            <Button Content="Student with the best grade" Command="{Binding bestStudentCommand}" Grid.Column="2" Grid.Row="1" Padding="10" Margin="17" Background="AquaMarine"/>
+            <Button Content="Avarage age across schools" Command="{Binding avgAgeCommand}" Grid.Column="0" Grid.Row="2" Padding="10" Margin="17" Background="AquaMarine"/>
+            <Button Content="Young Students" Command="{Binding youngStudentsCommand}" Grid.Column="2" Grid.Row="2" Padding="10" Margin="17" Background="AquaMarine"/>
+       </Grid>
     </Grid>
 </Window>

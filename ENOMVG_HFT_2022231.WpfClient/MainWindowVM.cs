@@ -19,10 +19,13 @@ namespace ENOMVG_HFT_2022231.WpfClient
         public ICommand stewCommand { get; set; }
         public ICommand tchwCommand { get; set; }
         public ICommand schwCommand { get; set; }
+
         public ICommand mostPaidTchCommand { get; set; }
         public ICommand leastPaidTchCommand { get; set; }
+        public ICommand bestStudentCommand { get; set; }
+        public ICommand avgAgeCommand { get; set; }
+        public ICommand youngStudentsCommand { get; set; }
 
-        public ICommand beastStudentCommand { get; set; }
 
         public MainWindowVM()
         {
@@ -47,6 +50,7 @@ namespace ENOMVG_HFT_2022231.WpfClient
                     sw.ShowDialog();
                 });
 
+
                 mostPaidTchCommand = new RelayCommand(() =>
                 {
                     MessageBox.Show($"Most paid teacher: {rest.GetSingle<Teacher>("/Statistics/Teacher_MostPaidTeacher").Name}");
@@ -57,9 +61,20 @@ namespace ENOMVG_HFT_2022231.WpfClient
                     MessageBox.Show($"Least paid teacher: {rest.GetSingle<Teacher>("/Statistics/Teacher_LeastPaidTeacher").Name}");
                 });
 
-                beastStudentCommand = new RelayCommand(() =>
+                bestStudentCommand = new RelayCommand(() =>
                 {
                     MessageBox.Show($"Best student: {rest.GetSingle<Student>("/Statistics/Student_BestStudent").Name}");
+                });
+
+                avgAgeCommand = new RelayCommand(() =>
+                {
+                    MessageBox.Show($"Avarage age: {rest.GetSingle<double>("/Statistics/Student_AvarageAge")}");
+                });
+
+                youngStudentsCommand = new RelayCommand(() =>
+                {
+                    ListWindow lw = new ListWindow(rest.GetSingle<IEnumerable<Student>>("/Statistics/Student_YoungStudents"));
+                    lw.ShowDialog();
                 });
             }
         }
