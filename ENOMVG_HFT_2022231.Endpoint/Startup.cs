@@ -73,7 +73,7 @@ namespace ENOMVG_HFT_2022231.Endpoint
                 .AllowCredentials()
                 .AllowAnyMethod()
                 .AllowAnyHeader()
-                .WithOrigins("http://localhost:2931")
+                .WithOrigins("http://localhost:2403")
                 );
 
             app.UseRouting();
