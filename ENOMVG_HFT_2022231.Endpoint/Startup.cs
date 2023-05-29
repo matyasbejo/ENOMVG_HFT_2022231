@@ -69,6 +69,13 @@ namespace ENOMVG_HFT_2022231.Endpoint
                 await context.Response.WriteAsJsonAsync(response);
             }));
 
+            app.UseCors(x => x
+                .AllowCredentials()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .WithOrigins("http://localhost:2931")
+                );
+
             app.UseRouting();
 
             app.UseAuthorization();
