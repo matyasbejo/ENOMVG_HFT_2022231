@@ -67,19 +67,19 @@ namespace ENOMVG_HFT_2022231.WpfClient
                 stewCommand = new RelayCommand(() =>
                 {
                     StudentEditorWindow sw = new StudentEditorWindow();
-                    sw.ShowDialog();
+                    sw.Show();
                 });
 
                 schwCommand = new RelayCommand(() =>
                 {
                     SchoolEditorWindow sw = new SchoolEditorWindow();
-                    sw.ShowDialog();
+                    sw.Show();
                 });
 
                 tchwCommand = new RelayCommand(() =>
                 {
                     TeacherEditorWindow sw = new TeacherEditorWindow();
-                    sw.ShowDialog();
+                    sw.Show();
                 });
 
 
