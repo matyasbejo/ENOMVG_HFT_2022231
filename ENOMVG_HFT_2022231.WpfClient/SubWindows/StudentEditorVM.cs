@@ -70,8 +70,8 @@ namespace ENOMVG_HFT_2022231.WpfClient.SubWindows
         {
             if (!IsInDesignMode)
             {
-                Students = new RestCollection<Student>("http://localhost:15398/", "student");
-                Schools = new RestCollection<School>("http://localhost:15398/", "school");
+                Students = new RestCollection<Student>("http://localhost:15398/", "student", "hub");
+                Schools = new RestCollection<School>("http://localhost:15398/", "school", "hub");
 
                 try
                 {

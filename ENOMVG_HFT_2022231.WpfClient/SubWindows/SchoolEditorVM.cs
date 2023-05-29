@@ -53,8 +53,8 @@ namespace ENOMVG_HFT_2022231.WpfClient.SubWindows
         {
             if (!IsInDesignMode)
             {
-                Teachers = new RestCollection<Teacher>("http://localhost:15398/", "teacher");
-                Schools = new RestCollection<School>("http://localhost:15398/", "school");
+                Teachers = new RestCollection<Teacher>("http://localhost:15398/", "teacher", "hub");
+                Schools = new RestCollection<School>("http://localhost:15398/", "school", "hub");
 
                 try
                 {
