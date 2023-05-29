@@ -9,7 +9,6 @@ th, td{
 
 table, th, td {
     border: 1px solid black;
-    font-weight: normal;
 }
 
 tbody {
@@ -34,4 +33,8 @@ thead{
 
 #formdiv label{
     font-weight:bolder;
+}
+
+table button{
+    padding: 2px;
 }
