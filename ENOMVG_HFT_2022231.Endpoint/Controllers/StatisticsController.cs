@@ -1,6 +1,8 @@
-﻿using ENOMVG_HFT_2022231.Logic;
+﻿using ENOMVG_HFT_2022231.Endpoint.Services;
+using ENOMVG_HFT_2022231.Logic;
 using ENOMVG_HFT_2022231.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System.Collections.Generic;
 
 namespace ENOMVG_HFT_2022231.Endpoint.Controllers
@@ -13,7 +15,7 @@ namespace ENOMVG_HFT_2022231.Endpoint.Controllers
         IStudentLogic StudentLogic;
         ITeacherLogic TeacherLogic;
 
-        public StatisticsController(ISchoolLogic _schl, IStudentLogic _stl, ITeacherLogic _tcl)
+        public StatisticsController(ISchoolLogic _schl, IStudentLogic _stl, ITeacherLogic _tcl, IHubContext<SignalRHub> _hub)
         {
             this.SchoolLogic = _schl;
             this.StudentLogic = _stl;

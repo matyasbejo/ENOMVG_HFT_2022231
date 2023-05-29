@@ -1,3 +1,4 @@
+using ENOMVG_HFT_2022231.Endpoint.Services;
 using ENOMVG_HFT_2022231.Logic;
 using ENOMVG_HFT_2022231.Models;
 using ENOMVG_HFT_2022231.Repository;
@@ -40,6 +41,7 @@ namespace ENOMVG_HFT_2022231.Endpoint
             services.AddTransient<IStudentLogic, StudentLogic>();
             services.AddTransient<ITeacherLogic, TeacherLogic>();
 
+            services.AddSignalR();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -74,6 +76,7 @@ namespace ENOMVG_HFT_2022231.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }
