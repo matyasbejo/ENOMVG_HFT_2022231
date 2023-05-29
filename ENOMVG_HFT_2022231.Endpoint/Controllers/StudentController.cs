@@ -56,7 +56,7 @@ namespace ENOMVG_HFT_2022231.Endpoint.Controllers
         {
             Student studentToDelete = this.logic.Read(id);
             logic.Delete(id);
-            this.hub.Clients.All.SendAsync("StudentCreated", studentToDelete);
+            this.hub.Clients.All.SendAsync("StudentDeleted", studentToDelete);
         }
     }
 }
