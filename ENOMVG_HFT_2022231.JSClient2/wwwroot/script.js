@@ -1,5 +1,7 @@
 ﻿let students = [];
 let connection = null;
+
+let actorIdtoUpdate = -1;
 getdata();
 setupSignalR();
 
@@ -9,11 +11,15 @@ function setupSignalR() {
         .configureLogging(signalR.LogLevel.Information)
         .build();
 
-    connection.on("StudentCreated", (user, message) => {
+    connection.on("StudentCreated", (user, message) => { //
         getdata();
     });
 
-    connection.on("StudentDeleted", (user, message) => {
+    connection.on("StudentDeleted", (user, message) => { //
+        getdata();
+    });
+
+    connection.on("StudentUpdated", (user, message) => { //
         getdata();
     });
 
@@ -34,7 +40,7 @@ async function start() {
 };
 
 async function getdata() {
-    await fetch('http://localhost:15398/student')
+    await fetch('http://localhost:15398/student') //
         .then(x => x.json())
         .then(y => {
             students = y;
@@ -44,7 +50,7 @@ async function getdata() {
 }
 
 
-function display() {
+function display() { //
     document.getElementById("StudentGetArea").innerHTML = "";
     students.forEach(s => {
         document.getElementById("StudentGetArea").innerHTML +=
@@ -52,12 +58,24 @@ function display() {
             "</td><td>" + s.schoolId +
             "</td><td>" + s.age +
             "</td><td>" + s.gradesAVG +
-        "</td><td>" + `<button type="button" onclick="remove(${s.id})">Delete</button>` + "</td></tr>";
+            "</td><td>" +
+        `<button type="button" onclick="remove(${s.id})">Delete</button>` +
+        `<button type="button" onclick="showupdate(${s.id})">Update</button>` +
+            "</td></tr>";
     });
 }
 
+function showupdate(id) {
+    document.getElementById("st_u_name").value = students.find(s => s['id'] == id)['name'];
+    document.getElementById("st_u_schoolid").value = students.find(s => s['id'] == id)['schoolId'];
+    document.getElementById("st_u_gradesavg").value = students.find(s => s['id'] == id)['gradesAVG'];
+    document.getElementById("st_u_age").value = students.find(s => s['id'] == id)['age'];
+    document.getElementById("updateformdiv").style.display = 'flex';
+    actorIdtoUpdate = id;
+}
+
 function remove(id){
-    fetch('http://localhost:15398/student/' + id, {
+    fetch('http://localhost:15398/student/' + id, { //
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json', },
         body: null
@@ -70,7 +88,7 @@ function remove(id){
         .catch((error) => { console.error('Error:', error); });
 }
 
-function create() {
+function create() { //
     let _name = document.getElementById('stname').value;
     let _stschoolid = document.getElementById('stschoolid').value;
     let _age = document.getElementById('stage').value;
@@ -87,6 +105,30 @@ function create() {
         .then(response => response)
         .then(data =>
         {
+            console.log('Success', data);
+            getdata();
+        })
+        .catch((error) => { console.error('Error:', error) });
+}
+
+function update() { //
+    document.getElementById('updateformdiv').style.display = 'none';
+    let _name = document.getElementById('st_u_name').value;
+    let _stschoolid = document.getElementById('st_u_schoolid').value;
+    let _age = document.getElementById('st_u_age').value;
+    let _grades = document.getElementById('st_u_gradesavg').value;
+
+    fetch('http://localhost:15398/student', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', },
+        body: JSON.stringify(
+            {
+                name: _name, schoolId: _stschoolid, age: _age, gradesAVG: _grades,
+                id: actorIdtoUpdate
+            })
+    })
+        .then(response => response)
+        .then(data => {
             console.log('Success', data);
             getdata();
         })
