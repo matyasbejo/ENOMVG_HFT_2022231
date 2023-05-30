@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>School UI</title>
+    <link rel="stylesheet" href="mainstyle.css" />
+</head>
+<body>
+    <h1>School catalog </h1>
+    <a href="index.html">Student catalog</a>
+    <a href="TchPage.html">Teacher catalog</a>
+
+    <div id="formdiv">
+        <dl>
+            <dt><label>School Name</label></dt>
+            <dd><input type="text" id="scname" /></dd>
+
+            <dt><label>Age</label></dt>
+            <dd><input type="number" id="scage" /></dd>
+
+            <dt><label>Type</label></dt>
+            <dd><input type="number" id="sctype" /></dd>
+        </dl>
+        <button type="button" onclick="create()">Add school</button>
+    </div>
+
+    <div id="updateformdiv">
+        <dl>
+            <dt><label>Name</label></dt>
+            <dd><input type="text" id="sc_u_name" /></dd>
+
+            <dt><label>Age</label></dt>
+            <dd><input type="number" id="sc_u_age" /></dd>
+
+            <dt><label>Type</label></dt>
+            <dd><input type="number" id="sc_u_type" /></dd>
+        </dl>
+        <button type="button" onclick="update()">Update school</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>School Name</th>
+                <th>Age</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="SchoolGetArea">
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="ScScript.js"></script>
+</body>
+</html>
