@@ -62,7 +62,7 @@ namespace ENOMVG_HFT_2022231.WpfClient.SubWindows
                     {
                         int maxId = Schools.Max(s => s.Id);
                         SelectedSchool.Id = maxId + 1;
-                        Schools.Add(SelectedSchool);
+                        Schools.Add(new School() { Age = selectedSchool.Age, Name = selectedSchool.Name, Type = selectedSchool.Type, Students = selectedSchool.Students, Teachers = selectedSchool.Teachers });
                     });
 
                     DeleteSchoolCommand = new RelayCommand(() =>
