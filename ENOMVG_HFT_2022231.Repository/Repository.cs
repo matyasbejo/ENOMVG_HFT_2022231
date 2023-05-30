@@ -17,7 +17,8 @@ namespace ENOMVG_HFT_2022231.Repository
         public void Create(T _item)
         {
             context.Set<T>().Add(_item);
-            context.SaveChanges();
+            try { context.SaveChanges(); }
+            catch { };
         }
 
         public void Delete(int _id)
