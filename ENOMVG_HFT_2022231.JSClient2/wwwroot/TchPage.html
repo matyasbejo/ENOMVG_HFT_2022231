@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Teacher UI</title>
+    <link rel="stylesheet" href="mainstyle.css" />
+</head>
+<body>
+    <h1>Teacher catalog </h1>
+    <a href="index.html">Student catalog</a>
+
+    <div id="formdiv">
+        <dl>
+            <dt><label>Teacher Name</label></dt>
+            <dd><input type="text" id="tchname" /></dd>
+
+            <dt><label>School Id</label></dt>
+            <dd><input type="number" id="tchschoolid" /></dd>
+
+            <dt><label>Salary</label></dt>
+            <dd><input type="number" id="tchsalary" /></dd>
+
+            <dt><label>Main Subject</label></dt>
+            <dd><input type="number" id="tchmainsubject" /></dd>
+        </dl>
+        <button type="button" onclick="create()">Add teacher</button>
+    </div>
+
+    <div id="updateformdiv">
+        <dl>
+            <dt><label>Teacher Name</label></dt>
+            <dd><input type="text" id="tch_u_name" /></dd>
+
+            <dt><label>School Id</label></dt>
+            <dd><input type="number" id="tch_u_schoolid" /></dd>
+
+            <dt><label>Salary</label></dt>
+            <dd><input type="number" id="tch_u_salary" /></dd>
+
+            <dt><label>Main Subject</label></dt>
+            <dd><input type="0" id="tch_u_mainsubject" /></dd>
+        </dl>
+        <button type="button" onclick="update()">Update teacher</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Teacher Name</th>
+                <th>School Id</th>
+                <th>Salary</th>
+                <th>Main Subject</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="TeacherGetArea">
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="TchScript.js"></script>
+</body>
+</html>
