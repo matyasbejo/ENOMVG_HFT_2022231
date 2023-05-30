@@ -20,6 +20,7 @@ thead{
 }
 
 #formdiv{
+    margin-top:50px;
     display: flex;
     flex-direction: column;
     margin-bottom:20px;
@@ -53,4 +54,12 @@ thead{
 
 table button{
     padding: 2px;
+}
+
+h1, h4{
+    text-align: center
+}
+
+body{
+    background-color: lightcyan
 }
